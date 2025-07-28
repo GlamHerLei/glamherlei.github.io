@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Catálogo VILUX</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="turn.min.js"></script>
+</head>
+<body>
+  <div id="flipbook">
+    <div class="page portada">Catálogo VILUX</div>
+    <div class="page">Perfumes<br><a href="https://wa.me/573001234567?text=Hola,+quiero+el+Perfume+del+catálogo+VILUX" target="_blank">Pedir por WhatsApp</a></div>
+    <div class="page">Maquillaje<br><a href="https://wa.me/573001234567?text=Hola,+quiero+el+Maquillaje+del+catálogo+VILUX" target="_blank">Pedir por WhatsApp</a></div>
+    <div class="page">Accesorios<br><a href="https://wa.me/573001234567?text=Hola,+quiero+los+Accesorios+del+catálogo+VILUX" target="_blank">Pedir por WhatsApp</a></div>
+    <div class="page">Gracias por tu compra<br><a href="https://t.me/tuBotTelegram" target="_blank">Ver seguimiento por Telegram</a></div>
+  </div>
+
+  <script>
+    $("#flipbook").turn({
+      width: 800,
+      height: 500,
+      autoCenter: true
+    });
+  </script>
+</body>
+</html>
