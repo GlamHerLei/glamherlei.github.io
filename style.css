@@ -1,72 +1,31 @@
-
 body {
-  font-family: 'Inter', sans-serif;
   background: #fff;
-  color: #333;
-  margin: 20px;
-  padding-bottom: 100px;
-}
-h1 {
+  font-family: sans-serif;
   text-align: center;
-  color: #b35aa0;
+  margin: 0;
+  padding: 0;
 }
-.catalogo {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+.catalog-container {
+  margin: 20px auto;
 }
-.producto {
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  padding: 16px;
-  width: 250px;
-  text-align: center;
-  background: #fafafa;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+#flipbook {
+  width: 800px;
+  height: 500px;
+  margin: auto;
 }
-.producto img {
+.page img {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
+  height: 100%;
+  object-fit: cover;
 }
-.producto h2 {
-  margin: 10px 0 5px;
-  font-size: 18px;
-}
-.producto p {
-  font-weight: bold;
-  color: #444;
-}
-.producto button {
-  background: #b35aa0;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-#carrito {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #f9f9f9;
-  border-top: 1px solid #ddd;
-  padding: 15px;
-  text-align: center;
-}
-#carrito h2 {
-  margin-top: 0;
-}
-#whatsappBtn {
-  background: #25d366;
-  color: white;
+.whatsapp {
+  display: inline-block;
   padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  margin-top: 10px;
+  background-color: #25D366;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+}
+.descarga {
+  margin-top: 20px;
 }
