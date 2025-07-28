@@ -1,37 +1,74 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Catálogo GlamHerLei</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="turn.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tienda GlamHerLei</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <div class="catalog-container">
-    <div id="flipbook">
-      <div class="page"><img src="portada.jpg" alt="Portada"></div>
-      <div class="page"><img src="bolso_dorado.jpg" alt="Bolso Dorado"></div>
-      <div class="page"><img src="bolso_negro.jpg" alt="Bolso Negro"></div>
-      <div class="page"><img src="bolso_beige.jpg" alt="Bolso Beige"></div>
-      <div class="page">
-        <img src="final.jpg" alt="Gracias">
-        <p style="text-align:center; margin-top:10px;">
-          <a href="https://wa.me/573186611074?text=Hola,+quiero+hacer+un+pedido+del+catálogo+GlamHerLei" class="whatsapp">Hacer pedido por WhatsApp</a>
-        </p>
-      </div>
+  <header>
+    <h1>GlamHerLei</h1>
+    <p>Descubre tu estilo con nuestros bolsos exclusivos ✨</p>
+  </header>
+
+  <main class="productos">
+    <div class="producto">
+      <img src="bolso_dorado.jpg" alt="Bolso Dorado Rosa" />
+      <h2>Bolso Dorado Rosa</h2>
+      <p class="precio">$90.000</p>
+      <button onclick="agregarAlCarrito('Bolso Dorado Rosa', 90000)">Agregar al carrito</button>
     </div>
-    <div class="descarga">
-      <a href="catalogo_glamherlei.pdf" download>📥 Descargar catálogo en PDF</a>
+    <div class="producto">
+      <img src="bolso_negro.jpg" alt="Bolso Negro Rosa" />
+      <h2>Bolso Negro Rosa</h2>
+      <p class="precio">$100.000</p>
+      <button onclick="agregarAlCarrito('Bolso Negro Rosa', 100000)">Agregar al carrito</button>
     </div>
-  </div>
+    <div class="producto">
+      <img src="bolso_beige.jpg" alt="Bolso Beige Rosa" />
+      <h2>Bolso Beige Rosa</h2>
+      <p class="precio">$95.000</p>
+      <button onclick="agregarAlCarrito('Bolso Beige Rosa', 95000)">Agregar al carrito</button>
+    </div>
+  </main>
+
+  <section id="carrito">
+    <h2>👜 Tu carrito</h2>
+    <ul id="lista-carrito"></ul>
+    <button id="btn-whatsapp" onclick="enviarPorWhatsApp()">Enviar pedido por WhatsApp</button>
+  </section>
 
   <script>
-    $('#flipbook').turn({
-      width: 800,
-      height: 500,
-      autoCenter: true
-    });
+    const carrito = [];
+
+    function agregarAlCarrito(nombre, precio) {
+      carrito.push({ nombre, precio });
+      actualizarCarrito();
+    }
+
+    function actualizarCarrito() {
+      const lista = document.getElementById("lista-carrito");
+      lista.innerHTML = "";
+      carrito.forEach((producto) => {
+        const li = document.createElement("li");
+        li.textContent = `${producto.nombre} - $${producto.precio.toLocaleString()}`;
+        lista.appendChild(li);
+      });
+    }
+
+    function enviarPorWhatsApp() {
+      if (carrito.length === 0) {
+        alert("Tu carrito está vacío");
+        return;
+      }
+      const mensaje = carrito
+        .map((p) => `• ${p.nombre} - $${p.precio.toLocaleString()}`)
+        .join("%0A");
+      const url = `https://wa.me/573186611074?text=Hola,+quiero+hacer+un+pedido:+%0A${mensaje}`;
+      window.open(url, "_blank");
+    }
   </script>
 </body>
 </html>
