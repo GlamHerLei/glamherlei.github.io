@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Catálogo - GlamHerLei</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="img/favicon.png" type="image/png">
+  <link rel="icon" href="img/favicon.png" type="image/png" />
   <script src="carrito.js" defer></script>
 </head>
 <body>
@@ -20,17 +20,17 @@
   </nav>
 
   <div class="filtros">
-    <button onclick="cargarSeccion('bolsos.html')">Bolsos</button>
-    <button onclick="cargarSeccion('zapatos.html')">Zapatos</button>
-    <button onclick="cargarSeccion('accesorios.html')">Accesorios</button>
+    <button onclick="cargarSeccion('bolsos')">Bolsos</button>
+    <button onclick="cargarSeccion('zapatos')">Zapatos</button>
+    <button onclick="cargarSeccion('tecnologia')">Tecnología</button>
+    <button onclick="cargarSeccion('accesorios')">Accesorios</button>
   </div>
 
-  <div id="seccion-productos">
-    <!-- Aquí se cargará el contenido de bolsos.html, zapatos.html, etc. -->
-  </div>
+  <!-- Aquí se cargan dinámicamente las secciones -->
+  <div id="productos" class="productos"></div>
 
+  <!-- Carrito flotante -->
   <button id="toggle-carrito" onclick="toggleCarrito()">👜 <span id="contador-carrito">0</span></button>
-
   <div id="carrito">
     <h3>👜 Tu pedido</h3>
     <ul id="lista-carrito"></ul>
@@ -46,19 +46,17 @@
   </footer>
 
   <script>
-    // Cargar bolsos.html por defecto
-    window.onload = () => cargarSeccion('bolsos.html');
-
-    function cargarSeccion(url) {
-      fetch(url)
+    // Carga secciones como bolsos.html, zapatos.html...
+    function cargarSeccion(nombre) {
+      fetch(`${nombre}.html`)
         .then(res => res.text())
         .then(html => {
-          document.getElementById('seccion-productos').innerHTML = html;
-        })
-        .catch(() => {
-          document.getElementById('seccion-productos').innerHTML = '<p>Error al cargar la sección.</p>';
+          document.getElementById("productos").innerHTML = html;
         });
     }
+
+    // Carga "bolsos" por defecto
+    window.onload = () => cargarSeccion('bolsos');
   </script>
 </body>
 </html>
