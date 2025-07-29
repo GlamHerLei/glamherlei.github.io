@@ -69,6 +69,24 @@
       overflow-y: auto;
       box-shadow: 0 0 10px #ccc;
       z-index: 999;
+      transition: transform 0.3s ease;
+    }
+    #carrito.minimizado {
+      transform: translateY(85%);
+    }
+    #toggle-carrito {
+      position: fixed;
+      right: 15px;
+      bottom: 15px;
+      background-color: #b35aa0;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 1000;
     }
     #carrito h3 {
       margin-top: 0;
@@ -168,6 +186,8 @@
       <button onclick="agregarAlCarrito('Bolso Beige', 95000)">Agregar</button>
     </div>
   </div>
+
+  <button id="toggle-carrito" onclick="document.getElementById('carrito').classList.toggle('minimizado')">👜</button>
 
   <div id="carrito">
     <h3>👜 Tu pedido</h3>
