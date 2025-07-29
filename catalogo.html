@@ -20,24 +20,26 @@
   </nav>
 
   <div class="filtros">
-    <button onclick="cargarSeccion('bolsos')">Bolsos</button>
-    <button onclick="cargarSeccion('zapatos')">Zapatos</button>
-    <button onclick="cargarSeccion('tecnologia')">Tecnología</button>
-    <button onclick="cargarSeccion('accesorios')">Accesorios</button>
+    <button onclick="cargarSeccion('bolsos.html')">Bolsos</button>
+    <button onclick="cargarSeccion('zapatos.html')">Zapatos</button>
+    <button onclick="cargarSeccion('accesorios.html')">Accesorios</button>
   </div>
 
-  <!-- Aquí se cargan dinámicamente las secciones -->
-  <div id="productos" class="productos"></div>
+  <div id="contenido-seccion" class="productos">
+    <p style="text-align:center;">Selecciona una categoría para ver los productos.</p>
+  </div>
 
-  <!-- Carrito flotante -->
+  <!-- Botón de carrito flotante -->
   <button id="toggle-carrito" onclick="toggleCarrito()">👜 <span id="contador-carrito">0</span></button>
-  <div id="carrito">
+
+  <!-- Carrito oculto inicialmente -->
+  <div id="carrito" class="minimizado">
     <h3>👜 Tu pedido</h3>
     <ul id="lista-carrito"></ul>
     <div id="total"></div>
     <div class="acciones">
-      <button onclick="vaciarCarrito()">Vaciar carrito</button>
-      <button onclick="enviarPedido()">Enviar por WhatsApp</button>
+      <button onclick="vaciarCarrito()">Vaciar</button>
+      <button onclick="enviarPedido()">WhatsApp</button>
     </div>
   </div>
 
@@ -46,17 +48,13 @@
   </footer>
 
   <script>
-    // Carga secciones como bolsos.html, zapatos.html...
-    function cargarSeccion(nombre) {
-      fetch(`${nombre}.html`)
+    function cargarSeccion(seccion) {
+      fetch(seccion)
         .then(res => res.text())
         .then(html => {
-          document.getElementById("productos").innerHTML = html;
+          document.getElementById('contenido-seccion').innerHTML = html;
         });
     }
-
-    // Carga "bolsos" por defecto
-    window.onload = () => cargarSeccion('bolsos');
   </script>
 </body>
 </html>
