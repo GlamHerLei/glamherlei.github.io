@@ -42,7 +42,7 @@
       font-size: 15px;
     }
     .hero {
-      display: none; /* Oculta el banner por defecto */
+      display: block;
       text-align: center;
       background-color: #fff0f6;
       padding: 30px 20px;
@@ -65,6 +65,7 @@
       text-decoration: none;
       font-weight: bold;
       font-size: 14px;
+      cursor: pointer;
     }
     .boton:hover {
       background-color: #9d3e86;
@@ -101,14 +102,10 @@
     }
   </style>
   <script>
-    // Mostrar el hero (banner) solo al cargar index.html
-    window.addEventListener('DOMContentLoaded', function () {
-      const pathname = window.location.pathname;
-      if (pathname.includes('index.html') || pathname.endsWith('/')) {
-        const hero = document.querySelector('.hero');
-        if (hero) hero.style.display = 'block';
-      }
-    });
+    function cerrarBanner() {
+      const hero = document.querySelector('.hero');
+      if (hero) hero.style.display = 'none';
+    }
   </script>
 </head>
 <body>
@@ -118,7 +115,7 @@
       <li><a href="index.html">
         <img src="img/logo.png" alt="GlamHerLei" style="height: 32px; vertical-align: middle;" />
       </a></li>
-      <li><a href="index.html">Inicio</a></li>
+      <li><a href="#" onclick="cerrarBanner()">Inicio</a></li>
       <li><a href="catalogo.html">Catálogo</a></li>
       <li><a href="como-comprar.html">Cómo comprar</a></li>
       <li><a href="contacto.html">Contacto</a></li>
@@ -130,7 +127,7 @@
     <div class="hero-text">
       <h1>Bienvenidos a GlamHerLei</h1>
       <p>Tu estilo comienza aquí. Explora nuestros bolsos, zapatos y accesorios exclusivos.</p>
-      <a href="catalogo.html" class="boton">Explorar catálogo</a>
+      <button class="boton" onclick="cerrarBanner()">Inicio</button>
     </div>
   </header>
 
