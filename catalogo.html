@@ -7,6 +7,162 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="img/favicon.png" type="image/png" />
   <script src="carrito.js" defer></script>
+  <style>
+    .filtros {
+      text-align: center;
+      margin: 20px;
+    }
+    .filtros button {
+      background-color: #b35aa0;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin: 5px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .productos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+    .producto {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      width: 220px;
+      text-align: center;
+      padding: 15px;
+    }
+    .producto img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    .producto h3 {
+      margin: 10px 0 5px;
+    }
+    .producto p {
+      margin: 0 0 10px;
+    }
+    .producto button {
+      background-color: #b35aa0;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    #carrito {
+      position: fixed;
+      right: 15px;
+      bottom: 70px;
+      background: #fff0f6;
+      border: 1px solid #b35aa0;
+      padding: 10px;
+      border-radius: 10px;
+      width: 260px;
+      max-height: 320px;
+      overflow-y: auto;
+      box-shadow: 0 0 10px #ccc;
+      z-index: 999;
+      display: none;
+    }
+
+    #toggle-carrito {
+      position: fixed;
+      right: 15px;
+      bottom: 15px;
+      background-color: #b35aa0;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    #toggle-carrito span {
+      font-size: 14px;
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: red;
+      color: white;
+      border-radius: 50%;
+      padding: 2px 6px;
+    }
+
+    #carrito h3 {
+      margin-top: 0;
+      color: #b35aa0;
+    }
+
+    #carrito ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 10px 0;
+    }
+
+    #carrito li {
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+
+    #carrito .acciones {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .btn-cantidad {
+      margin-left: 5px;
+      padding: 2px 6px;
+      font-size: 12px;
+    }
+
+    #total {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: #fff;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        padding: 10px;
+        z-index: 1000;
+      }
+      nav ul.active {
+        display: flex;
+      }
+      nav .menu-toggle {
+        display: block;
+        background: #b35aa0;
+        color: white;
+        padding: 10px;
+        border: none;
+        margin: 10px;
+        border-radius: 5px;
+      }
+      #carrito {
+        width: 90%;
+        max-height: 300px;
+        padding: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
   <nav>
@@ -25,21 +181,19 @@
     <button onclick="cargarSeccion('accesorios.html')">Accesorios</button>
   </div>
 
-  <div id="contenido-seccion" class="productos">
-    <p style="text-align:center;">Selecciona una categoría para ver los productos.</p>
+  <div class="productos" id="productos">
+    <!-- Aquí se cargará dinámicamente el contenido de cada sección -->
   </div>
 
-  <!-- Botón de carrito flotante -->
   <button id="toggle-carrito" onclick="toggleCarrito()">👜 <span id="contador-carrito">0</span></button>
 
-  <!-- Carrito oculto inicialmente -->
-  <div id="carrito" class="minimizado">
+  <div id="carrito">
     <h3>👜 Tu pedido</h3>
     <ul id="lista-carrito"></ul>
     <div id="total"></div>
     <div class="acciones">
-      <button onclick="vaciarCarrito()">Vaciar</button>
-      <button onclick="enviarPedido()">WhatsApp</button>
+      <button onclick="vaciarCarrito()">Vaciar carrito</button>
+      <button onclick="enviarPedido()">Enviar por WhatsApp</button>
     </div>
   </div>
 
@@ -48,12 +202,17 @@
   </footer>
 
   <script>
-    function cargarSeccion(seccion) {
-      fetch(seccion)
+    function cargarSeccion(archivo) {
+      fetch(archivo)
         .then(res => res.text())
         .then(html => {
-          document.getElementById('contenido-seccion').innerHTML = html;
+          document.getElementById('productos').innerHTML = html;
         });
+    }
+
+    function toggleCarrito() {
+      const c = document.getElementById('carrito');
+      c.style.display = c.style.display === 'block' ? 'none' : 'block';
     }
   </script>
 </body>
