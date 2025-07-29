@@ -176,13 +176,14 @@
   </nav>
 
   <div class="filtros">
+    <button onclick="cargarSeccion('todos.html')">Todos</button>
     <button onclick="cargarSeccion('bolsos.html')">Bolsos</button>
     <button onclick="cargarSeccion('zapatos.html')">Zapatos</button>
     <button onclick="cargarSeccion('accesorios.html')">Accesorios</button>
   </div>
 
   <div class="productos" id="productos">
-    <!-- Aquí se cargará dinámicamente el contenido de cada sección -->
+    <!-- Aquí se cargará el contenido de la categoría -->
   </div>
 
   <button id="toggle-carrito" onclick="toggleCarrito()">👜 <span id="contador-carrito">0</span></button>
@@ -207,6 +208,7 @@
         .then(res => res.text())
         .then(html => {
           document.getElementById('productos').innerHTML = html;
+          actualizarCarrito?.();
         });
     }
 
@@ -214,6 +216,11 @@
       const c = document.getElementById('carrito');
       c.style.display = c.style.display === 'block' ? 'none' : 'block';
     }
+
+    // Cargar "Todos" por defecto al iniciar
+    document.addEventListener('DOMContentLoaded', () => {
+      cargarSeccion('todos.html');
+    });
   </script>
 </body>
 </html>
