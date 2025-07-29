@@ -6,6 +6,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GlamHerLei - Inicio</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    nav {
+      background-color: #fff;
+      padding: 10px 20px;
+      border-bottom: 1px solid #ccc;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 0;
+      margin: 0;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #b35aa0;
+      font-weight: bold;
+    }
+    .hero {
+      text-align: center;
+      background-color: #fff0f6;
+      padding: 40px 20px;
+    }
+    .hero-text h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+      color: #b35aa0;
+    }
+    .hero-text p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .boton {
+      background-color: #b35aa0;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .boton:hover {
+      background-color: #9d3e86;
+    }
+    .banner {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin-bottom: 30px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #fef2fb;
+      font-size: 14px;
+      color: #888;
+    }
+  </style>
 </head>
 <body>
   <nav>
@@ -20,12 +83,12 @@
     </ul>
   </nav>
 
-  <header class="hero" style="text-align: center; background-color: #f8f8f8; padding: 40px 20px;">
-    <img src="img/portada.jpg" alt="Catálogo GlamHerLei" class="banner" style="max-width: 100%; height: auto; border-radius: 12px; margin-bottom: 20px;" />
-    <div class="hero-text" style="color: #333;">
-      <h1 style="font-size: 32px; margin-bottom: 10px;">Bienvenidos a GlamHerLei</h1>
-      <p style="font-size: 18px; margin-bottom: 20px;">Tu estilo comienza aquí. Explora nuestros bolsos, zapatos y accesorios exclusivos.</p>
-      <a href="catalogo.html" class="boton" style="background-color: #b35aa0; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold;">Inicio</a>
+  <header class="hero">
+    <img src="img/portada.jpg" alt="Catálogo GlamHerLei" class="banner" />
+    <div class="hero-text">
+      <h1>Bienvenidos a GlamHerLei</h1>
+      <p>Tu estilo comienza aquí. Explora nuestros bolsos, zapatos y accesorios exclusivos.</p>
+      <a href="catalogo.html" class="boton">Inicio</a>
     </div>
   </header>
 
