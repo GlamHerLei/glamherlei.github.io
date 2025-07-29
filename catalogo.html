@@ -202,34 +202,59 @@
   </footer>
 
   <script>
-    function cargarSeccion(archivo) {
-      fetch(archivo)
-        .then(res => {
-          if (!res.ok) {
-            throw new Error('Archivo no encontrado');
-          }
-          return res.text();
-        })
-        .then(html => {
-          document.getElementById('productos').innerHTML = html.trim() === '' 
-            ? '<p style="text-align:center; font-size:18px; color:#666;">No hay productos disponibles actualmente.</p>'
-            : html;
-          actualizarCarrito?.();
-        })
-        .catch(() => {
-          document.getElementById('productos').innerHTML = '<p style="text-align:center; font-size:18px; color:#666;">No hay productos disponibles actualmente.</p>';
-        });
-    }
+  function cargarSeccion(archivo) {
+    fetch(archivo)
+      .then(res => {
+        if (!res.ok) throw new Error('Archivo no encontrado');
+        return res.text();
+      })
+      .then(html => {
+        document.getElementById('productos').innerHTML = html.trim() === ''
+          ? '<p style="text-align:center; font-size:18px; color:#666;">No hay productos disponibles actualmente.</p>'
+          : html;
+        actualizarCarrito?.();
+      })
+      .catch(() => {
+        document.getElementById('productos').innerHTML = '<p style="text-align:center; font-size:18px; color:#666;">No hay productos disponibles actualmente.</p>';
+      });
+  }
 
-    function toggleCarrito() {
-      const c = document.getElementById('carrito');
-      c.style.display = c.style.display === 'block' ? 'none' : 'block';
-    }
+  function cargarTodasLasSecciones() {
+    const archivos = [
+      'bolsos.html',
+      'zapatos.html',
+      'accesorios.html',
+      'tecnologia.html',
+      'hogar.html'
+    ];
+    const contenedor = document.getElementById('productos');
+    contenedor.innerHTML = ''; // Limpia antes de cargar
 
-    // Cargar bolsos por defecto al iniciar
-    document.addEventListener('DOMContentLoaded', () => {
-      cargarSeccion('bolsos.html');
+    Promise.all(
+      archivos.map(archivo =>
+        fetch(archivo)
+          .then(res => res.ok ? res.text() : '')
+          .catch(() => '')
+      )
+    ).then(htmls => {
+      const contenido = htmls.join('').trim();
+      contenedor.innerHTML = contenido === ''
+        ? '<p style="text-align:center; font-size:18px; color:#666;">No hay productos disponibles actualmente.</p>'
+        : contenido;
+      actualizarCarrito?.();
     });
-  </script>
+  }
+
+  function toggleCarrito() {
+    const c = document.getElementById('carrito');
+    c.style.display = c.style.display === 'block' ? 'none' : 'block';
+  }
+
+  // Al iniciar, cargar todos los productos
+  document.addEventListener('DOMContentLoaded', () => {
+    cargarTodasLasSecciones();
+  });
+</script>
+
 </body>
 </html>
