@@ -42,6 +42,7 @@
       font-size: 15px;
     }
     .hero {
+      display: none; /* Oculta el banner por defecto */
       text-align: center;
       background-color: #fff0f6;
       padding: 30px 20px;
@@ -99,6 +100,16 @@
       }
     }
   </style>
+  <script>
+    // Mostrar el hero (banner) solo al cargar index.html
+    window.addEventListener('DOMContentLoaded', function () {
+      const pathname = window.location.pathname;
+      if (pathname.includes('index.html') || pathname.endsWith('/')) {
+        const hero = document.querySelector('.hero');
+        if (hero) hero.style.display = 'block';
+      }
+    });
+  </script>
 </head>
 <body>
   <nav>
@@ -119,7 +130,7 @@
     <div class="hero-text">
       <h1>Bienvenidos a GlamHerLei</h1>
       <p>Tu estilo comienza aquí. Explora nuestros bolsos, zapatos y accesorios exclusivos.</p>
-      <a href="catalogo.html" class="boton">Inicio</a>
+      <a href="catalogo.html" class="boton">Explorar catálogo</a>
     </div>
   </header>
 
