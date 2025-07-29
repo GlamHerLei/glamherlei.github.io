@@ -41,40 +41,33 @@
       font-weight: bold;
       font-size: 15px;
     }
-    .hero {
-      display: block;
+    .inicio {
       text-align: center;
       background-color: #fff0f6;
-      padding: 30px 20px;
+      padding: 50px 20px;
     }
-    .hero-text h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
+    .inicio h1 {
+      font-size: 32px;
       color: #b35aa0;
+      margin-bottom: 10px;
     }
-    .hero-text p {
-      font-size: 16px;
-      margin-bottom: 20px;
+    .inicio p {
+      font-size: 18px;
       color: #333;
+      margin-bottom: 20px;
     }
     .boton {
       background-color: #b35aa0;
       color: white;
-      padding: 10px 20px;
+      padding: 12px 24px;
       border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
-      font-size: 14px;
+      font-size: 16px;
       cursor: pointer;
     }
     .boton:hover {
       background-color: #9d3e86;
-    }
-    .banner {
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-      margin-bottom: 25px;
     }
     footer {
       text-align: center;
@@ -101,12 +94,6 @@
       }
     }
   </style>
-  <script>
-    function cerrarBanner() {
-      const hero = document.querySelector('.hero');
-      if (hero) hero.style.display = 'none';
-    }
-  </script>
 </head>
 <body>
   <nav>
@@ -115,21 +102,18 @@
       <li><a href="index.html">
         <img src="img/logo.png" alt="GlamHerLei" style="height: 32px; vertical-align: middle;" />
       </a></li>
-      <li><a href="#" onclick="cerrarBanner()">Inicio</a></li>
+      <li><a href="index.html">Inicio</a></li>
       <li><a href="catalogo.html">Catálogo</a></li>
       <li><a href="como-comprar.html">Cómo comprar</a></li>
       <li><a href="contacto.html">Contacto</a></li>
     </ul>
   </nav>
 
-  <header class="hero">
-    <img src="img/portada.jpg" alt="Catálogo GlamHerLei" class="banner" />
-    <div class="hero-text">
-      <h1>Bienvenidos a GlamHerLei</h1>
-      <p>Tu estilo comienza aquí. Explora nuestros bolsos, zapatos y accesorios exclusivos.</p>
-      <button class="boton" onclick="cerrarBanner()">Inicio</button>
-    </div>
-  </header>
+  <section class="inicio">
+    <h1>Bienvenidos a GlamHerLei</h1>
+    <p>Tu estilo comienza aquí. Explora nuestros bolsos, zapatos y accesorios exclusivos.</p>
+    <a href="catalogo.html" class="boton">Ver catálogo</a>
+  </section>
 
   <footer>
     <p>&copy; 2025 GlamHerLei - Todos los derechos reservados</p>
