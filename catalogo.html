@@ -1,0 +1,176 @@
+<!-- catalogo.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo - GlamHerLei</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="img/favicon.png" type="image/png">
+  <style>
+    .filtros {
+      text-align: center;
+      margin: 20px;
+    }
+    .filtros button {
+      background-color: #b35aa0;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin: 5px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .productos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+    .producto {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      width: 220px;
+      text-align: center;
+      padding: 15px;
+    }
+    .producto img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+    }
+    .producto h3 {
+      margin: 10px 0 5px;
+    }
+    .producto p {
+      margin: 0 0 10px;
+    }
+    .producto button {
+      background-color: #b35aa0;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    #carrito {
+      position: fixed;
+      right: 15px;
+      bottom: 15px;
+      background: #fff0f6;
+      border: 1px solid #b35aa0;
+      padding: 15px;
+      border-radius: 10px;
+      width: 250px;
+      max-height: 300px;
+      overflow-y: auto;
+      box-shadow: 0 0 10px #ccc;
+    }
+    #carrito h3 {
+      margin-top: 0;
+      color: #b35aa0;
+    }
+    #carrito ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 10px 0;
+    }
+    #carrito li {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <button class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">☰ Menú</button>
+    <ul>
+      <li><a href="index.html"><img src="img/logo.png" alt="GlamHerLei" style="height: 32px; vertical-align: middle;" /></a></li>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="catalogo.html">Catálogo</a></li>
+      <li><a href="como-comprar.html">Cómo comprar</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <div class="filtros">
+    <button onclick="filtrar('todos')">Todos</button>
+    <button onclick="filtrar('bolsos')">Bolsos</button>
+    <button onclick="filtrar('zapatos')">Zapatos</button>
+    <button onclick="filtrar('accesorios')">Accesorios</button>
+  </div>
+
+  <div class="productos" id="productos">
+    <div class="producto bolsos">
+      <img src="img/bolso_dorado.jpg" alt="Bolso Dorado" />
+      <h3>Bolso Dorado</h3>
+      <p>$90,000</p>
+      <button onclick="agregarAlCarrito('Bolso Dorado', 90000)">Agregar</button>
+    </div>
+    <div class="producto bolsos">
+      <img src="img/bolso_negro.jpg" alt="Bolso Negro" />
+      <h3>Bolso Negro</h3>
+      <p>$100,000</p>
+      <button onclick="agregarAlCarrito('Bolso Negro', 100000)">Agregar</button>
+    </div>
+    <div class="producto bolsos">
+      <img src="img/bolso_beige.jpg" alt="Bolso Beige" />
+      <h3>Bolso Beige</h3>
+      <p>$95,000</p>
+      <button onclick="agregarAlCarrito('Bolso Beige', 95000)">Agregar</button>
+    </div>
+    <!-- Puedes añadir más productos con class="producto zapatos" o "accesorios" -->
+  </div>
+
+  <div id="carrito">
+    <h3>🛍 Tu pedido</h3>
+    <ul id="lista-carrito"></ul>
+    <button onclick="enviarPedido()">Enviar por WhatsApp</button>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 GlamHerLei - Todos los derechos reservados</p>
+  </footer>
+
+  <script>
+    const carrito = [];
+
+    function agregarAlCarrito(nombre, precio) {
+      carrito.push({ nombre, precio });
+      renderizarCarrito();
+    }
+
+    function renderizarCarrito() {
+      const lista = document.getElementById('lista-carrito');
+      lista.innerHTML = '';
+      carrito.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.nombre} - $${item.precio.toLocaleString()}`;
+        lista.appendChild(li);
+      });
+    }
+
+    function enviarPedido() {
+      if (carrito.length === 0) {
+        alert('Tu carrito está vacío');
+        return;
+      }
+      const mensaje = carrito.map(p => `• ${p.nombre} - $${p.precio.toLocaleString()}`).join('%0A');
+      const url = `https://wa.me/573186611074?text=Hola,+quiero+hacer+un+pedido:%0A${mensaje}`;
+      window.open(url, '_blank');
+    }
+
+    function filtrar(categoria) {
+      const productos = document.querySelectorAll('.producto');
+      productos.forEach(p => {
+        if (categoria === 'todos' || p.classList.contains(categoria)) {
+          p.style.display = 'block';
+        } else {
+          p.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
