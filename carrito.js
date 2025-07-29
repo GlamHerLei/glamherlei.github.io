@@ -36,14 +36,11 @@ function enviarPedido() {
     alert("Tu carrito está vacío");
     return;
   }
-  const mensaje = carrito.map(p => `• ${p.nombre} x${p.cantidad} - $${(p.precio * p.cantidad).toLocaleString()}`).join('%0A');
+  const mensaje = carrito.map(p =>
+    `• ${p.nombre} x${p.cantidad} - $${(p.precio * p.cantidad).toLocaleString()}`
+  ).join('%0A');
   const url = `https://wa.me/573186611074?text=Hola,+quiero+hacer+un+pedido:%0A${mensaje}`;
   window.open(url, '_blank');
-}
-
-function toggleCarrito() {
-  const carritoDiv = document.getElementById('carrito');
-  carritoDiv.style.display = carritoDiv.style.display === 'none' ? 'block' : 'none';
 }
 
 function agregarAlCarritoConColor(nombre, precio, colorSelectId) {
@@ -57,7 +54,7 @@ function actualizarCarrito() {
   const totalDiv = document.getElementById('total');
   const contador = document.getElementById('contador-carrito');
 
-  if (!lista || !totalDiv || !contador) return; // evita errores si el HTML no lo tiene
+  if (!lista || !totalDiv || !contador) return;
 
   lista.innerHTML = '';
   let total = 0;
@@ -79,7 +76,6 @@ function actualizarCarrito() {
   contador.textContent = totalCantidad;
 }
 
-// Al cargar la página
 document.addEventListener('DOMContentLoaded', () => {
   actualizarCarrito();
 });
