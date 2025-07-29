@@ -37,8 +37,9 @@
       padding: 15px;
     }
     .producto img {
-      width: 100%;
-      height: auto;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
       border-radius: 6px;
     }
     .producto h3 {
@@ -63,10 +64,11 @@
       border: 1px solid #b35aa0;
       padding: 15px;
       border-radius: 10px;
-      width: 250px;
-      max-height: 300px;
+      width: 280px;
+      max-height: 350px;
       overflow-y: auto;
       box-shadow: 0 0 10px #ccc;
+      z-index: 999;
     }
     #carrito h3 {
       margin-top: 0;
@@ -79,6 +81,56 @@
     }
     #carrito li {
       margin-bottom: 5px;
+      font-size: 14px;
+    }
+    #total {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    nav {
+      background-color: #fff;
+      padding: 10px 20px;
+      border-bottom: 1px solid #ccc;
+    }
+    .menu-toggle {
+      display: none;
+      background-color: #b35aa0;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 0;
+      margin: 0;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #b35aa0;
+      font-weight: bold;
+      font-size: 15px;
+    }
+    @media screen and (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+        margin-bottom: 10px;
+      }
+      nav ul {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: #fff;
+        padding: 10px;
+        border: 1px solid #ccc;
+      }
+      nav ul.active {
+        display: flex;
+      }
     }
   </style>
 </head>
@@ -120,12 +172,12 @@
       <p>$95,000</p>
       <button onclick="agregarAlCarrito('Bolso Beige', 95000)">Agregar</button>
     </div>
-    <!-- Puedes añadir más productos con class="producto zapatos" o "accesorios" -->
   </div>
 
   <div id="carrito">
     <h3>👜 Tu pedido</h3>
     <ul id="lista-carrito"></ul>
+    <div id="total"></div>
     <button onclick="enviarPedido()">Enviar por WhatsApp</button>
   </div>
 
@@ -137,18 +189,29 @@
     const carrito = [];
 
     function agregarAlCarrito(nombre, precio) {
-      carrito.push({ nombre, precio });
+      const existente = carrito.find(p => p.nombre === nombre);
+      if (existente) {
+        existente.cantidad += 1;
+      } else {
+        carrito.push({ nombre, precio, cantidad: 1 });
+      }
       renderizarCarrito();
     }
 
     function renderizarCarrito() {
       const lista = document.getElementById('lista-carrito');
+      const totalDiv = document.getElementById('total');
       lista.innerHTML = '';
+      let total = 0;
+
       carrito.forEach(item => {
         const li = document.createElement('li');
-        li.textContent = `${item.nombre} - $${item.precio.toLocaleString()}`;
+        li.textContent = `${item.nombre} x${item.cantidad} - $${(item.precio * item.cantidad).toLocaleString()}`;
         lista.appendChild(li);
+        total += item.precio * item.cantidad;
       });
+
+      totalDiv.textContent = `Total: $${total.toLocaleString()}`;
     }
 
     function enviarPedido() {
@@ -156,7 +219,7 @@
         alert('Tu carrito está vacío');
         return;
       }
-      const mensaje = carrito.map(p => `• ${p.nombre} - $${p.precio.toLocaleString()}`).join('%0A');
+      const mensaje = carrito.map(p => `• ${p.nombre} x${p.cantidad} - $${(p.precio * p.cantidad).toLocaleString()}`).join('%0A');
       const url = `https://wa.me/573186611074?text=Hola,+quiero+hacer+un+pedido:%0A${mensaje}`;
       window.open(url, '_blank');
     }
