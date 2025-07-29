@@ -1,4 +1,3 @@
-<!-- catalogo.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,155 +6,7 @@
   <title>Catálogo - GlamHerLei</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="img/favicon.png" type="image/png">
-  <style>
-    .filtros {
-      text-align: center;
-      margin: 20px;
-    }
-    .filtros button {
-      background-color: #b35aa0;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      margin: 5px;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    .productos {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 20px;
-    }
-    .producto {
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      width: 220px;
-      text-align: center;
-      padding: 15px;
-    }
-    .producto img {
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 6px;
-    }
-    .producto h3 {
-      margin: 10px 0 5px;
-    }
-    .producto p {
-      margin: 0 0 10px;
-    }
-    .producto button {
-      background-color: #b35aa0;
-      color: white;
-      border: none;
-      padding: 8px 12px;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    #carrito {
-      position: fixed;
-      right: 15px;
-      bottom: 70px;
-      background: #fff0f6;
-      border: 1px solid #b35aa0;
-      padding: 10px;
-      border-radius: 10px;
-      width: 260px;
-      max-height: 320px;
-      overflow-y: auto;
-      box-shadow: 0 0 10px #ccc;
-      z-index: 999;
-      display: none;
-    }
-    #toggle-carrito {
-      position: fixed;
-      right: 15px;
-      bottom: 15px;
-      background-color: #b35aa0;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      font-size: 20px;
-      cursor: pointer;
-      z-index: 1000;
-    }
-    #toggle-carrito span {
-      font-size: 14px;
-      position: absolute;
-      top: -8px;
-      right: -8px;
-      background: red;
-      color: white;
-      border-radius: 50%;
-      padding: 2px 6px;
-    }
-    #carrito h3 {
-      margin-top: 0;
-      color: #b35aa0;
-    }
-    #carrito ul {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 10px 0;
-    }
-    #carrito li {
-      margin-bottom: 5px;
-      font-size: 14px;
-    }
-    #carrito .acciones {
-      margin-top: 10px;
-      display: flex;
-      justify-content: space-between;
-    }
-    #carrito button {
-      margin-top: 5px;
-    }
-    .btn-cantidad {
-      margin-left: 5px;
-      padding: 2px 6px;
-      font-size: 12px;
-    }
-    #total {
-      font-weight: bold;
-      margin-top: 10px;
-    }
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-        flex-direction: column;
-        background: #fff;
-        position: absolute;
-        top: 60px;
-        right: 10px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        padding: 10px;
-        z-index: 1000;
-      }
-      nav ul.active {
-        display: flex;
-      }
-      nav .menu-toggle {
-        display: block;
-        background: #b35aa0;
-        color: white;
-        padding: 10px;
-        border: none;
-        margin: 10px;
-        border-radius: 5px;
-      }
-      #carrito {
-        width: 90%;
-        max-height: 300px;
-        padding: 10px;
-      }
-    }
-  </style>
+  <script src="carrito.js" defer></script>
 </head>
 <body>
   <nav>
@@ -169,31 +20,13 @@
   </nav>
 
   <div class="filtros">
-    <button onclick="filtrar('todos')">Todos</button>
-    <button onclick="filtrar('bolsos')">Bolsos</button>
-    <button onclick="filtrar('zapatos')">Zapatos</button>
-    <button onclick="filtrar('accesorios')">Accesorios</button>
+    <button onclick="cargarSeccion('bolsos.html')">Bolsos</button>
+    <button onclick="cargarSeccion('zapatos.html')">Zapatos</button>
+    <button onclick="cargarSeccion('accesorios.html')">Accesorios</button>
   </div>
 
-  <div class="productos" id="productos">
-    <div class="producto bolsos">
-      <img src="img/bolso_dorado.png" alt="Bolso Dorado" />
-      <h3>Bolso Dorado</h3>
-      <p>$90,000</p>
-      <button onclick="agregarAlCarrito('Bolso Dorado', 90000)">Agregar</button>
-    </div>
-    <div class="producto bolsos">
-      <img src="img/bolso_negro.png" alt="Bolso Negro" />
-      <h3>Bolso Negro</h3>
-      <p>$100,000</p>
-      <button onclick="agregarAlCarrito('Bolso Negro', 100000)">Agregar</button>
-    </div>
-    <div class="producto bolsos">
-      <img src="img/bolso_beige.png" alt="Bolso Beige" />
-      <h3>Bolso Beige</h3>
-      <p>$95,000</p>
-      <button onclick="agregarAlCarrito('Bolso Beige', 95000)">Agregar</button>
-    </div>
+  <div id="seccion-productos">
+    <!-- Aquí se cargará el contenido de bolsos.html, zapatos.html, etc. -->
   </div>
 
   <button id="toggle-carrito" onclick="toggleCarrito()">👜 <span id="contador-carrito">0</span></button>
@@ -213,77 +46,18 @@
   </footer>
 
   <script>
-    const carrito = [];
-    let visible = false;
+    // Cargar bolsos.html por defecto
+    window.onload = () => cargarSeccion('bolsos.html');
 
-    function toggleCarrito() {
-      visible = !visible;
-      document.getElementById('carrito').style.display = visible ? 'block' : 'none';
-    }
-
-    function agregarAlCarrito(nombre, precio) {
-      const existente = carrito.find(p => p.nombre === nombre);
-      if (existente) {
-        existente.cantidad += 1;
-      } else {
-        carrito.push({ nombre, precio, cantidad: 1 });
-      }
-      renderizarCarrito();
-    }
-
-    function cambiarCantidad(nombre, delta) {
-      const producto = carrito.find(p => p.nombre === nombre);
-      if (!producto) return;
-      producto.cantidad += delta;
-      if (producto.cantidad <= 0) {
-        const index = carrito.indexOf(producto);
-        carrito.splice(index, 1);
-      }
-      renderizarCarrito();
-    }
-
-    function vaciarCarrito() {
-      carrito.length = 0;
-      renderizarCarrito();
-    }
-
-    function renderizarCarrito() {
-      const lista = document.getElementById('lista-carrito');
-      const totalDiv = document.getElementById('total');
-      const contador = document.getElementById('contador-carrito');
-      lista.innerHTML = '';
-      let total = 0;
-      let cantidadTotal = 0;
-
-      carrito.forEach(item => {
-        const li = document.createElement('li');
-        li.innerHTML = `${item.nombre} x${item.cantidad} - $${(item.precio * item.cantidad).toLocaleString()}` +
-          ` <button class='btn-cantidad' onclick="cambiarCantidad('${item.nombre}', 1)">+</button>` +
-          ` <button class='btn-cantidad' onclick="cambiarCantidad('${item.nombre}', -1)">–</button>`;
-        lista.appendChild(li);
-        total += item.precio * item.cantidad;
-        cantidadTotal += item.cantidad;
-      });
-
-      totalDiv.textContent = `Total: $${total.toLocaleString()}`;
-      contador.textContent = cantidadTotal;
-    }
-
-    function enviarPedido() {
-      if (carrito.length === 0) {
-        alert('Tu carrito está vacío');
-        return;
-      }
-      const mensaje = carrito.map(p => `• ${p.nombre} x${p.cantidad} - $${(p.precio * p.cantidad).toLocaleString()}`).join('%0A');
-      const url = `https://wa.me/573186611074?text=Hola,+quiero+hacer+un+pedido:%0A${mensaje}`;
-      window.open(url, '_blank');
-    }
-
-    function filtrar(categoria) {
-      const productos = document.querySelectorAll('.producto');
-      productos.forEach(p => {
-        p.style.display = categoria === 'todos' || p.classList.contains(categoria) ? 'block' : 'none';
-      });
+    function cargarSeccion(url) {
+      fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById('seccion-productos').innerHTML = html;
+        })
+        .catch(() => {
+          document.getElementById('seccion-productos').innerHTML = '<p>Error al cargar la sección.</p>';
+        });
     }
   </script>
 </body>
