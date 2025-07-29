@@ -62,14 +62,15 @@
       bottom: 15px;
       background: #fff0f6;
       border: 1px solid #b35aa0;
-      padding: 15px;
+      padding: 10px;
       border-radius: 10px;
-      width: 300px;
-      max-height: 400px;
+      width: 260px;
+      max-height: 320px;
       overflow-y: auto;
       box-shadow: 0 0 10px #ccc;
       z-index: 999;
       transition: transform 0.3s ease;
+      transform: translateY(85%);
     }
     #carrito.minimizado {
       transform: translateY(85%);
@@ -145,6 +146,11 @@
         margin: 10px;
         border-radius: 5px;
       }
+      #carrito {
+        width: 90%;
+        max-height: 300px;
+        padding: 10px;
+      }
     }
   </style>
 </head>
@@ -189,7 +195,7 @@
 
   <button id="toggle-carrito" onclick="document.getElementById('carrito').classList.toggle('minimizado')">👜</button>
 
-  <div id="carrito">
+  <div id="carrito" class="minimizado">
     <h3>👜 Tu pedido</h3>
     <ul id="lista-carrito"></ul>
     <div id="total"></div>
