@@ -100,13 +100,40 @@
       font-weight: bold;
       margin-top: 10px;
     }
+    nav .menu-toggle {
+      display: none;
+    }
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: #fff;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        padding: 10px;
+        z-index: 1000;
+      }
+      nav ul.active {
+        display: flex;
+      }
+      nav .menu-toggle {
+        display: block;
+        background: #b35aa0;
+        color: white;
+        padding: 10px;
+        border: none;
+        margin: 10px;
+        border-radius: 5px;
+      }
+    }
   </style>
 </head>
 <body>
   <nav>
     <button class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">☰ Menú</button>
     <ul>
-      <li><a href="index.html"><img src="img/logo.png" alt="GlamHerLei" style="height: 32px; vertical-align: middle;" /></a></li>
       <li><a href="index.html">Inicio</a></li>
       <li><a href="catalogo.html">Catálogo</a></li>
       <li><a href="como-comprar.html">Cómo comprar</a></li>
