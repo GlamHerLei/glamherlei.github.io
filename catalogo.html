@@ -176,14 +176,13 @@
   </nav>
 
   <div class="filtros">
-    <button onclick="cargarSeccion('todos.html')">Todos</button>
     <button onclick="cargarSeccion('bolsos.html')">Bolsos</button>
     <button onclick="cargarSeccion('zapatos.html')">Zapatos</button>
     <button onclick="cargarSeccion('accesorios.html')">Accesorios</button>
   </div>
 
   <div class="productos" id="productos">
-    <!-- Aquí se cargará el contenido de la categoría -->
+    <!-- Sección cargada aquí -->
   </div>
 
   <button id="toggle-carrito" onclick="toggleCarrito()">👜 <span id="contador-carrito">0</span></button>
@@ -205,10 +204,20 @@
   <script>
     function cargarSeccion(archivo) {
       fetch(archivo)
-        .then(res => res.text())
+        .then(res => {
+          if (!res.ok) {
+            throw new Error('Archivo no encontrado');
+          }
+          return res.text();
+        })
         .then(html => {
-          document.getElementById('productos').innerHTML = html;
+          document.getElementById('productos').innerHTML = html.trim() === '' 
+            ? '<p style="text-align:center; font-size:18px; color:#666;">No hay productos disponibles actualmente.</p>'
+            : html;
           actualizarCarrito?.();
+        })
+        .catch(() => {
+          document.getElementById('productos').innerHTML = '<p style="text-align:center; font-size:18px; color:#666;">No hay productos disponibles actualmente.</p>';
         });
     }
 
@@ -217,9 +226,9 @@
       c.style.display = c.style.display === 'block' ? 'none' : 'block';
     }
 
-    // Cargar "Todos" por defecto al iniciar
+    // Cargar bolsos por defecto al iniciar
     document.addEventListener('DOMContentLoaded', () => {
-      cargarSeccion('todos.html');
+      cargarSeccion('bolsos.html');
     });
   </script>
 </body>
