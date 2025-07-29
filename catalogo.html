@@ -59,7 +59,7 @@
     #carrito {
       position: fixed;
       right: 15px;
-      bottom: 15px;
+      bottom: 70px;
       background: #fff0f6;
       border: 1px solid #b35aa0;
       padding: 10px;
@@ -69,11 +69,7 @@
       overflow-y: auto;
       box-shadow: 0 0 10px #ccc;
       z-index: 999;
-      transition: transform 0.3s ease;
-      transform: translateY(85%);
-    }
-    #carrito.minimizado {
-      transform: translateY(85%);
+      display: none;
     }
     #toggle-carrito {
       position: fixed;
@@ -83,11 +79,21 @@
       color: white;
       border: none;
       border-radius: 50%;
-      width: 40px;
-      height: 40px;
+      width: 50px;
+      height: 50px;
       font-size: 20px;
       cursor: pointer;
       z-index: 1000;
+    }
+    #toggle-carrito span {
+      font-size: 14px;
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: red;
+      color: white;
+      border-radius: 50%;
+      padding: 2px 6px;
     }
     #carrito h3 {
       margin-top: 0;
@@ -118,9 +124,6 @@
     #total {
       font-weight: bold;
       margin-top: 10px;
-    }
-    nav .menu-toggle {
-      display: none;
     }
     @media (max-width: 768px) {
       nav ul {
@@ -193,9 +196,9 @@
     </div>
   </div>
 
-  <button id="toggle-carrito" onclick="document.getElementById('carrito').classList.toggle('minimizado')">👜</button>
+  <button id="toggle-carrito" onclick="toggleCarrito()">👜 <span id="contador-carrito">0</span></button>
 
-  <div id="carrito" class="minimizado">
+  <div id="carrito">
     <h3>👜 Tu pedido</h3>
     <ul id="lista-carrito"></ul>
     <div id="total"></div>
@@ -211,6 +214,12 @@
 
   <script>
     const carrito = [];
+    let visible = false;
+
+    function toggleCarrito() {
+      visible = !visible;
+      document.getElementById('carrito').style.display = visible ? 'block' : 'none';
+    }
 
     function agregarAlCarrito(nombre, precio) {
       const existente = carrito.find(p => p.nombre === nombre);
@@ -241,8 +250,10 @@
     function renderizarCarrito() {
       const lista = document.getElementById('lista-carrito');
       const totalDiv = document.getElementById('total');
+      const contador = document.getElementById('contador-carrito');
       lista.innerHTML = '';
       let total = 0;
+      let cantidadTotal = 0;
 
       carrito.forEach(item => {
         const li = document.createElement('li');
@@ -251,9 +262,11 @@
           ` <button class='btn-cantidad' onclick="cambiarCantidad('${item.nombre}', -1)">–</button>`;
         lista.appendChild(li);
         total += item.precio * item.cantidad;
+        cantidadTotal += item.cantidad;
       });
 
       totalDiv.textContent = `Total: $${total.toLocaleString()}`;
+      contador.textContent = cantidadTotal;
     }
 
     function enviarPedido() {
