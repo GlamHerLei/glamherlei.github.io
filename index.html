@@ -1,74 +1,33 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tienda GlamHerLei</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GlamHerLei - Inicio</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <header>
-    <h1>GlamHerLei</h1>
-    <p>Descubre tu estilo con nuestros bolsos exclusivos ✨</p>
+  <nav>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="catalogo.html">Catálogo</a></li>
+      <li><a href="como-comprar.html">Cómo comprar</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <img src="img/portada.jpg" alt="Catálogo GlamHerLei" class="banner" />
+    <div class="hero-text">
+      <h1>Bienvenidos a GlamHerLei</h1>
+      <p>Tu estilo comienza aquí. Explora nuestros bolsos, zapatos y accesorios exclusivos.</p>
+      <a href="catalogo.html" class="boton">Ver Catálogo</a>
+    </div>
   </header>
 
-  <main class="productos">
-    <div class="producto">
-      <img src="bolso_dorado.png" alt="Bolso Dorado Rosa" />
-      <h2>Bolso Dorado Rosa</h2>
-      <p class="precio">$90.000</p>
-      <button onclick="agregarAlCarrito('Bolso Dorado Rosa', 90000)">Agregar al carrito</button>
-    </div>
-    <div class="producto">
-      <img src="bolso_negro.png" alt="Bolso Negro Rosa" />
-      <h2>Bolso Negro Rosa</h2>
-      <p class="precio">$100.000</p>
-      <button onclick="agregarAlCarrito('Bolso Negro Rosa', 100000)">Agregar al carrito</button>
-    </div>
-    <div class="producto">
-      <img src="bolso_beige.png" alt="Bolso Beige Rosa" />
-      <h2>Bolso Beige Rosa</h2>
-      <p class="precio">$95.000</p>
-      <button onclick="agregarAlCarrito('Bolso Beige Rosa', 95000)">Agregar al carrito</button>
-    </div>
-  </main>
-
-  <section id="carrito">
-    <h2>👜 Tu carrito</h2>
-    <ul id="lista-carrito"></ul>
-    <button id="btn-whatsapp" onclick="enviarPorWhatsApp()">Enviar pedido por WhatsApp</button>
-  </section>
-
-  <script>
-    const carrito = [];
-
-    function agregarAlCarrito(nombre, precio) {
-      carrito.push({ nombre, precio });
-      actualizarCarrito();
-    }
-
-    function actualizarCarrito() {
-      const lista = document.getElementById("lista-carrito");
-      lista.innerHTML = "";
-      carrito.forEach((producto) => {
-        const li = document.createElement("li");
-        li.textContent = `${producto.nombre} - $${producto.precio.toLocaleString()}`;
-        lista.appendChild(li);
-      });
-    }
-
-    function enviarPorWhatsApp() {
-      if (carrito.length === 0) {
-        alert("Tu carrito está vacío");
-        return;
-      }
-      const mensaje = carrito
-        .map((p) => `• ${p.nombre} - $${p.precio.toLocaleString()}`)
-        .join("%0A");
-      const url = `https://wa.me/573186611074?text=Hola,+quiero+hacer+un+pedido:+%0A${mensaje}`;
-      window.open(url, "_blank");
-    }
-  </script>
+  <footer>
+    <p>&copy; 2025 GlamHerLei - Todos los derechos reservados</p>
+  </footer>
 </body>
 </html>
