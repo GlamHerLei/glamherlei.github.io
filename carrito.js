@@ -46,6 +46,12 @@ function toggleCarrito() {
   carritoDiv.style.display = carritoDiv.style.display === 'none' ? 'block' : 'none';
 }
 
+function agregarAlCarritoConColor(nombre, precio, colorSelectId) {
+  const color = document.getElementById(colorSelectId)?.value || '';
+  const nombreConColor = `${nombre} (${color})`;
+  agregarAlCarrito(nombreConColor, precio);
+}
+
 function actualizarCarrito() {
   const lista = document.getElementById('lista-carrito');
   const totalDiv = document.getElementById('total');
