@@ -63,9 +63,12 @@ function actualizarCarrito() {
   carrito.forEach(item => {
     const li = document.createElement('li');
     li.innerHTML = `
-      ${item.nombre} x${item.cantidad} - $${(item.precio * item.cantidad).toLocaleString()}
-      <button class="btn-cantidad" onclick="agregarAlCarrito('${item.nombre}', ${item.precio})">+</button>
-      <button class="btn-cantidad" onclick="quitarDelCarrito('${item.nombre}')">–</button>
+      <div><strong>${item.nombre}</strong></div>
+      <div style="margin-bottom: 8px;">
+        x${item.cantidad} - $${(item.precio * item.cantidad).toLocaleString()} 
+        <button class="btn-cantidad" onclick="agregarAlCarrito('${item.nombre}', ${item.precio})">+</button>
+        <button class="btn-cantidad" onclick="quitarDelCarrito('${item.nombre}')">–</button>
+      </div>
     `;
     lista.appendChild(li);
     total += item.precio * item.cantidad;
