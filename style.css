@@ -1,3 +1,5 @@
+haber 
+
 /* FUENTE MODERNA */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
@@ -92,7 +94,7 @@ footer {
   color: #888;
 }
 
-/* PRODUCTOS */
+/* ---------- PRODUCTOS ---------- */
 .productos {
   display: flex;
   flex-wrap: wrap;
@@ -146,7 +148,7 @@ footer {
   background-color: #a0448a;
 }
 
-/* ETIQUETAS DE STOCK */
+/* ---------- ETIQUETAS DE STOCK ---------- */
 .etiqueta-stock {
   position: absolute;
   top: 10px;
@@ -164,7 +166,7 @@ footer {
   background-color: #cc0000;
 }
 
-/* CARRITO */
+/* ---------- CARRITO ---------- */
 #carrito {
   position: fixed;
   right: 15px;
@@ -247,7 +249,7 @@ footer {
   padding: 2px 6px;
 }
 
-/* FILTROS */
+/* ---------- FILTROS ---------- */
 .filtros {
   text-align: center;
   margin: 20px;
@@ -264,7 +266,7 @@ footer {
   font-weight: 600;
 }
 
-/* MENÚ HAMBURGUESA RESPONSIVO */
+/* ---------- MENÚ HAMBURGUESA RESPONSIVO ---------- */
 @media (max-width: 768px) {
   nav ul {
     display: none;
@@ -298,8 +300,7 @@ footer {
     max-height: 300px;
   }
 }
-
-/* CONTENEDOR GENERAL */
+/* ---------- CONTENEDOR ---------- */
 .contenido {
   max-width: 800px;
   margin: 40px auto;
@@ -310,7 +311,7 @@ footer {
   text-align: center;
 }
 
-/* CONTACTO */
+/* --------- CONTACTO --------- */
 .contacto-container {
   max-width: 800px;
   margin: 50px auto;
@@ -347,7 +348,6 @@ footer {
   font-size: 18px;
   margin-right: 6px;
 }
-
 /* CÓMO COMPRAR */
 .contenido h1 {
   font-size: 26px;
