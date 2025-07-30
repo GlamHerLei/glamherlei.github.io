@@ -266,21 +266,28 @@ footer {
 
 /* ---------- MENÚ HAMBURGUESA RESPONSIVO ---------- */
 @media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
   nav ul {
-    display: none;
     flex-direction: column;
-    background: #fff;
-    position: absolute;
-    top: 60px;
-    right: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    padding: 10px;
-    z-index: 1000;
+    display: none;
+    margin-top: 10px;
+    gap: 10px;
+    background-color: #b35aa0; /* Fondo del menú desplegable */
+    padding: 10px 0;
+    border-radius: 8px;
+  }
+
+  nav ul li a {
+    color: white; /* Asegura que el texto se vea bien */
   }
 
   nav ul.active {
     display: flex;
   }
+}
 
   nav .menu-toggle {
     display: block;
