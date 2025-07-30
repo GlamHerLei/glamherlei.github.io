@@ -89,26 +89,37 @@ footer {
   gap: 8px;
   font-size: 14px;
 }
+
 /* ---------- NUEVO: Etiquetas de stock ---------- */
 .producto {
   position: relative;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 220px;
+  text-align: center;
+  padding: 15px;
+  overflow: hidden;
+}
+
+.producto img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 6px;
 }
 
 .etiqueta-stock {
   position: absolute;
   top: 10px;
   left: 10px;
-  background-color: #b35aa0;
+  background-color: green;
   color: white;
   font-size: 12px;
   font-weight: bold;
   padding: 4px 8px;
   border-radius: 6px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.etiqueta-stock.disponible {
-  background-color: green;
+  z-index: 1;
 }
 
 .etiqueta-stock.espera {
