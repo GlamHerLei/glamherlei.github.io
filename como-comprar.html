@@ -2,26 +2,101 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cómo Comprar - GlamHerLei</title>
+  <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="img/favicon.png" type="image/png" />
-  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .contenido {
+      max-width: 800px;
+      margin: 40px auto;
+      background-color: #fff0f6;
+      padding: 30px 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.08);
+    }
+
+    .contenido h1 {
+      font-size: 26px;
+      color: #b35aa0;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contenido h1::before {
+      content: '👜';
+    }
+
+    .contenido ol {
+      padding-left: 20px;
+      margin-bottom: 25px;
+      color: #444;
+    }
+
+    .contenido ol li {
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+
+    .contenido strong {
+      color: #000;
+    }
+
+    .contenido .nota {
+      font-size: 15px;
+      color: #222;
+      margin-bottom: 10px;
+    }
+
+    .etiqueta-stock {
+      color: green;
+      font-weight: bold;
+    }
+
+    .etiqueta-espera {
+      color: #b35aa0;
+      font-weight: bold;
+    }
+
+    .gracias {
+      font-weight: bold;
+      color: #b35aa0;
+      font-size: 17px;
+      margin-top: 25px;
+    }
+
+    @media (max-width: 600px) {
+      .contenido {
+        margin: 20px;
+        padding: 20px;
+      }
+
+      .contenido h1 {
+        font-size: 22px;
+      }
+
+      .contenido ol li {
+        font-size: 15px;
+      }
+    }
+  </style>
 </head>
 <body>
+
   <nav>
     <button class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">☰ Menú</button>
     <ul>
       <li><a href="index.html">Inicio</a></li>
       <li><a href="catalogo.html">Catálogo</a></li>
-      <li><a href="como-comprar.html" class="activo">Cómo comprar</a></li>
+      <li><a href="como-comprar.html">Cómo comprar</a></li>
       <li><a href="contacto.html">Contacto</a></li>
     </ul>
   </nav>
 
-  <section class="contenedor">
-    <h1>👜 ¿Cómo Comprar?</h1>
-    <p>Seguir estos pasos es muy fácil:</p>
-
+  <div class="contenido">
+    <h1>¿Cómo Comprar?</h1>
     <ol>
       <li>Explora nuestro <strong>catálogo</strong> y agrega al carrito los productos que te gusten.</li>
       <li>Selecciona los <strong>colores</strong> y cantidades disponibles.</li>
@@ -29,13 +104,14 @@
       <li>Te atenderemos personalmente para confirmar tu pedido y coordinar el pago y envío.</li>
     </ol>
 
-    <p><strong>Nota:</strong> Si un producto está <span style="color:green;">“En stock”</span>, lo enviamos de inmediato. Si está <span style="color:#b35aa0;">“Sobre pedido (21 días)”</span>, debes esperar el tiempo indicado.</p>
+    <p class="nota"><strong>Nota:</strong> Si un producto está <span class="etiqueta-stock">“En stock”</span>, lo enviamos de inmediato. Si está <span class="etiqueta-espera">“Sobre pedido (21 días)”</span>, debes esperar el tiempo indicado.</p>
 
-    <p>¡Gracias por comprar con <strong>GlamHerLei</strong>! 💖</p>
-  </section>
+    <p class="gracias">¡Gracias por comprar con <strong>GlamHerLei</strong>! 💖</p>
+  </div>
 
   <footer>
     <p>&copy; 2025 GlamHerLei - Todos los derechos reservados</p>
   </footer>
+
 </body>
 </html>
