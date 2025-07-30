@@ -79,12 +79,21 @@ function actualizarCarrito() {
   contador.textContent = totalCantidad;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  actualizarCarrito();
-});
-
 function toggleCarrito() {
   const carrito = document.getElementById('carrito');
   if (!carrito) return;
   carrito.style.display = carrito.style.display === 'block' ? 'none' : 'block';
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  actualizarCarrito();
+});
+
+// Cierra el carrito si se hace clic fuera
+document.addEventListener('click', function (e) {
+  const carrito = document.getElementById('carrito');
+  const toggleBtn = document.getElementById('toggle-carrito');
+  if (!carrito.contains(e.target) && !toggleBtn.contains(e.target)) {
+    carrito.style.display = 'none';
+  }
+});
