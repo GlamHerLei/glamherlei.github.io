@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="img/favicon.png" type="image/png" />
   <script src="carrito.js" defer></script>
+  <script src="productos.js" defer></script>
 </head>
 <body>
   <nav>
@@ -20,26 +21,37 @@
   </nav>
 
   <div class="filtros">
-    <button onclick="cargarTodasLasSecciones()">Todos</button>
-    <button onclick="cargarSeccion('bolsos.html')">Bolsos</button>
-    <button onclick="cargarSeccion('zapatos.html')">Zapatos</button>
-    <button onclick="cargarSeccion('accesorios.html')">Accesorios</button>
-    <button onclick="cargarSeccion('tecnologia.html')">Tecnología</button>
-    <button onclick="cargarSeccion('hogar.html')">Hogar</button>
+    <select onchange="filtrarCategoria(this.value)">
+      <option value="todos">Todas las categorías</option>
+      <option value="bolsos">Bolsos</option>
+      <option value="zapatos">Zapatos</option>
+      <option value="accesorios">Accesorios</option>
+      <option value="tecnologia">Tecnología</option>
+      <option value="hogar">Hogar</option>
+    </select>
+    <select onchange="ordenarProductos(this.value)">
+      <option value="precio-asc">Precio: menor a mayor</option>
+      <option value="precio-desc">Precio: mayor a menor</option>
+      <option value="stock">Disponibilidad</option>
+    </select>
   </div>
 
   <div class="productos" id="productos"></div>
 
-  <!-- Botón flotante del carrito -->
-  <button id="toggle-carrito" onclick="toggleCarrito()">👜 <span id="contador-carrito">0</span></button>
+  <div id="modal-detalles" class="modal">
+    <div class="modal-contenido">
+      <span class="cerrar" onclick="cerrarModal()">&times;</span>
+      <div id="detalles-contenido"></div>
+    </div>
+  </div>
 
-  <!-- Contenedor del carrito -->
+  <button id="toggle-carrito" onclick="toggleCarrito()">👜 <span id="contador-carrito">0</span></button>
   <div id="carrito">
     <h3>👜 Tu pedido</h3>
     <ul id="lista-carrito"></ul>
     <div id="total"></div>
     <div class="acciones">
-      <button onclick="vaciarCarrito()">Vaciar carrito</button>
+      <button onclick="vaciarCarrito()">Vaciar</button>
       <button onclick="enviarPedido()">Enviar por WhatsApp</button>
     </div>
   </div>
@@ -47,48 +59,5 @@
   <footer>
     <p>&copy; 2025 GlamHerLei - Todos los derechos reservados</p>
   </footer>
-
-  <script>
-    function cargarSeccion(archivo) {
-      const version = Date.now();
-      fetch(`${archivo}?v=${version}`)
-        .then(res => res.ok ? res.text() : '')
-        .then(html => {
-          document.getElementById('productos').innerHTML = html.trim() === ''
-            ? '<p style="text-align:center; font-size:18px; color:#666;">No hay productos disponibles actualmente.</p>'
-            : html;
-          actualizarCarrito?.();
-        })
-        .catch(() => {
-          document.getElementById('productos').innerHTML = '<p style="text-align:center; font-size:18px; color:#666;">Error al cargar productos.</p>';
-        });
-    }
-
-    function cargarTodasLasSecciones() {
-      const archivos = ['bolsos.html', 'zapatos.html', 'accesorios.html', 'tecnologia.html', 'hogar.html'];
-      const contenedor = document.getElementById('productos');
-      contenedor.innerHTML = '';
-      const version = Date.now();
-
-      Promise.all(
-        archivos.map(a =>
-          fetch(`${a}?v=${version}`).then(r => r.ok ? r.text() : '').catch(() => '')
-        )
-      ).then(htmls => {
-        const contenido = htmls.join('').trim();
-        contenedor.innerHTML = contenido || '<p style="text-align:center; font-size:18px; color:#666;">No hay productos disponibles actualmente.</p>';
-        actualizarCarrito?.();
-      });
-    }
-
-    function toggleCarrito() {
-      const c = document.getElementById('carrito');
-      c.style.display = c.style.display === 'block' ? 'none' : 'block';
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      cargarTodasLasSecciones();
-    });
-  </script>
 </body>
 </html>
