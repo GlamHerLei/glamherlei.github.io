@@ -49,41 +49,47 @@
   </footer>
 
   <script>
-    function cargarSeccion(archivo) {
-      fetch(archivo)
-        .then(res => res.ok ? res.text() : '')
-        .then(html => {
-          document.getElementById('productos').innerHTML = html.trim() === ''
-            ? '<p style="text-align:center; font-size:18px; color:#666;">No hay productos disponibles actualmente.</p>'
-            : html;
-          actualizarCarrito?.();
-        })
-        .catch(() => {
-          document.getElementById('productos').innerHTML = '<p style="text-align:center; font-size:18px; color:#666;">Error al cargar productos.</p>';
-        });
-    }
+  function cargarSeccion(archivo) {
+    const version = Date.now(); // evita el caché
+    fetch(`${archivo}?v=${version}`)
+      .then(res => res.ok ? res.text() : '')
+      .then(html => {
+        document.getElementById('productos').innerHTML = html.trim() === ''
+          ? '<p style="text-align:center; font-size:18px; color:#666;">No hay productos disponibles actualmente.</p>'
+          : html;
+        actualizarCarrito?.();
+      })
+      .catch(() => {
+        document.getElementById('productos').innerHTML = '<p style="text-align:center; font-size:18px; color:#666;">Error al cargar productos.</p>';
+      });
+  }
 
-    function cargarTodasLasSecciones() {
-      const archivos = ['bolsos.html', 'zapatos.html', 'accesorios.html', 'tecnologia.html', 'hogar.html'];
-      const contenedor = document.getElementById('productos');
-      contenedor.innerHTML = '';
-      Promise.all(archivos.map(a => fetch(a).then(r => r.ok ? r.text() : '').catch(() => '')))
-        .then(htmls => {
-          const contenido = htmls.join('').trim();
-          contenedor.innerHTML = contenido || '<p style="text-align:center; font-size:18px; color:#666;">No hay productos disponibles actualmente.</p>';
-          actualizarCarrito?.();
-        });
-    }
+  function cargarTodasLasSecciones() {
+    const archivos = ['bolsos.html', 'zapatos.html', 'accesorios.html', 'tecnologia.html', 'hogar.html'];
+    const contenedor = document.getElementById('productos');
+    contenedor.innerHTML = '';
+    const version = Date.now();
 
-    function toggleCarrito() {
-      const c = document.getElementById('carrito');
-      c.style.display = c.style.display === 'block' ? 'none' : 'block';
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      cargarTodasLasSecciones();
+    Promise.all(
+      archivos.map(a =>
+        fetch(`${a}?v=${version}`).then(r => r.ok ? r.text() : '').catch(() => '')
+      )
+    ).then(htmls => {
+      const contenido = htmls.join('').trim();
+      contenedor.innerHTML = contenido || '<p style="text-align:center; font-size:18px; color:#666;">No hay productos disponibles actualmente.</p>';
+      actualizarCarrito?.();
     });
-  </script>
+  }
+
+  function toggleCarrito() {
+    const c = document.getElementById('carrito');
+    c.style.display = c.style.display === 'block' ? 'none' : 'block';
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    cargarTodasLasSecciones();
+  });
+</script>
 
   <style>
     .filtros {
