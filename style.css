@@ -89,3 +89,28 @@ footer {
   gap: 8px;
   font-size: 14px;
 }
+/* ---------- NUEVO: Etiquetas de stock ---------- */
+.producto {
+  position: relative;
+}
+
+.etiqueta-stock {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #b35aa0;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.etiqueta-stock.disponible {
+  background-color: green;
+}
+
+.etiqueta-stock.espera {
+  background-color: #cc0000;
+}
