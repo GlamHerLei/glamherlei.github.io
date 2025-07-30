@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GlamHerLei</title>
-  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <header>
-    <nav>
-      <button class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">☰</button>
-      <ul>
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Catálogo</a></li>
-        <li><a href="#">Cómo comprar</a></li>
-        <li><a href="#">Contacto</a></li>
-      </ul>
-    </nav>
+<body class="bg-white text-gray-800 font-sans">
+
+  <!-- Header -->
+  <header class="bg-white shadow-md">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <button class="text-xl">&#9776;</button>
+      <nav class="space-x-6">
+        <a href="#" class="text-pink-700 hover:underline">Inicio</a>
+        <a href="#" class="text-pink-700 hover:underline">Catálogo</a>
+        <a href="#" class="text-pink-700 hover:underline">Cómo comprar</a>
+        <a href="#" class="text-pink-700 hover:underline">Contacto</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- HERO sin imagen de fondo -->
-  <section class="hero" style="background-color: #fdeef4; padding: 60px 20px;">
-    <div class="hero-text" style="position: static; background: none; color: #b35aa0;">
-      <h1 style="color: #b35aa0;">Bienvenidos a GlamHerLei</h1>
-      <p style="color: #333;">Tu estilo comienza aquí. Explora nuestros bolsos, zapatos y accesorios exclusivos.</p>
-      <a href="#" class="boton">Ver catálogo</a>
+  <!-- Bienvenida -->
+  <section class="bg-pink-100 py-16">
+    <div class="max-w-4xl mx-auto text-center px-4">
+      <h1 class="text-3xl font-bold text-pink-800 mb-4">Bienvenidos a GlamHerLei</h1>
+      <p class="text-lg mb-6">Tu estilo comienza aquí. Explora nuestros bolsos, zapatos y accesorios exclusivos.</p>
+      <a href="#" class="inline-block bg-pink-600 text-white py-2 px-4 rounded hover:bg-pink-700">Ver catálogo</a>
     </div>
   </section>
 
-  <footer>
+  <!-- Footer -->
+  <footer class="bg-gray-100 text-center py-6 text-sm mt-10">
     © 2025 GlamHerLei - Todos los derechos reservados
   </footer>
+
 </body>
 </html>
