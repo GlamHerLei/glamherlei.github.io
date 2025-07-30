@@ -1,38 +1,123 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GlamHerLei</title>
+  <title>GlamHerLei - Inicio</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="img/favicon.png" type="image/png">
+
+  <!-- Google Font: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif; /* Aquí aplicamos la nueva fuente */
+    }
+    nav {
+      background-color: #fff;
+      padding: 10px 20px;
+      border-bottom: 1px solid #ccc;
+      position: relative;
+    }
+    .menu-toggle {
+      display: none;
+      background-color: #b35aa0;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 0;
+      margin: 0;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #b35aa0;
+      font-weight: bold;
+      font-size: 15px;
+    }
+    .inicio {
+      text-align: center;
+      background-color: #fff0f6;
+      padding: 50px 20px;
+    }
+    .inicio h1 {
+      font-size: 32px;
+      color: #b35aa0;
+      margin-bottom: 10px;
+    }
+    .inicio p {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .boton {
+      background-color: #b35aa0;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .boton:hover {
+      background-color: #9d3e86;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #fef2fb;
+      font-size: 14px;
+      color: #888;
+    }
+    @media screen and (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+        margin-bottom: 10px;
+      }
+      nav ul {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: #fff;
+        padding: 10px;
+        border: 1px solid #ccc;
+      }
+      nav ul.active {
+        display: flex;
+      }
+    }
+  </style>
 </head>
 <body>
-
-  <!-- NAV -->
   <nav>
-    <button class="menu-toggle">☰</button>
+    <button class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">☰ Menú</button>
     <ul>
-      <li><a href="#">Inicio</a></li>
-      <li><a href="#">Catálogo</a></li>
-      <li><a href="#">Cómo comprar</a></li>
-      <li><a href="#">Contacto</a></li>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="catalogo.html">Catálogo</a></li>
+      <li><a href="como-comprar.html">Cómo comprar</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
     </ul>
   </nav>
 
-  <!-- HERO SECTION CON BANNER -->
-  <section class="hero">
-    <img src="banner.jpg" alt="Banner GlamHerLei" class="banner" />
-    <div class="hero-text">
-      <h1>Bienvenidos a GlamHerLei</h1>
-      <p>Tu estilo comienza aquí. Explora nuestros bolsos, zapatos y accesorios exclusivos.</p>
-      <a href="#" class="boton">Ver catálogo</a>
-    </div>
+  <section class="inicio">
+    <h1>Bienvenidos a GlamHerLei</h1>
+    <p>Tu estilo comienza aquí. Explora nuestros bolsos, zapatos y accesorios exclusivos.</p>
+    <a href="catalogo.html" class="boton">Ver catálogo</a>
   </section>
 
-  <!-- FOOTER -->
   <footer>
-    © 2025 GlamHerLei - Todos los derechos reservados
+    <p>&copy; 2025 GlamHerLei - Todos los derechos reservados</p>
   </footer>
-
 </body>
 </html>
