@@ -308,3 +308,41 @@ footer {
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
   text-align: center;
 }
+
+/* --------- CONTACTO --------- */
+.contacto-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #fff0f6;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.contacto-container h2 {
+  color: #b35aa0;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.contacto-container p {
+  font-size: 16px;
+  margin: 15px 0;
+  color: #444;
+}
+
+.contacto-container a {
+  color: #b35aa0;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contacto-container a:hover {
+  text-decoration: underline;
+}
+
+.icono-contacto {
+  font-size: 18px;
+  margin-right: 6px;
+}
