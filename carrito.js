@@ -82,3 +82,9 @@ function actualizarCarrito() {
 document.addEventListener('DOMContentLoaded', () => {
   actualizarCarrito();
 });
+
+function toggleCarrito() {
+  const carrito = document.getElementById('carrito');
+  if (!carrito) return;
+  carrito.style.display = carrito.style.display === 'block' ? 'none' : 'block';
+}
