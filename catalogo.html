@@ -49,187 +49,46 @@
   </footer>
 
   <script>
-  function cargarSeccion(archivo) {
-    const version = Date.now(); // evita el caché
-    fetch(`${archivo}?v=${version}`)
-      .then(res => res.ok ? res.text() : '')
-      .then(html => {
-        document.getElementById('productos').innerHTML = html.trim() === ''
-          ? '<p style="text-align:center; font-size:18px; color:#666;">No hay productos disponibles actualmente.</p>'
-          : html;
+    function cargarSeccion(archivo) {
+      const version = Date.now();
+      fetch(`${archivo}?v=${version}`)
+        .then(res => res.ok ? res.text() : '')
+        .then(html => {
+          document.getElementById('productos').innerHTML = html.trim() === ''
+            ? '<p style="text-align:center; font-size:18px; color:#666;">No hay productos disponibles actualmente.</p>'
+            : html;
+          actualizarCarrito?.();
+        })
+        .catch(() => {
+          document.getElementById('productos').innerHTML = '<p style="text-align:center; font-size:18px; color:#666;">Error al cargar productos.</p>';
+        });
+    }
+
+    function cargarTodasLasSecciones() {
+      const archivos = ['bolsos.html', 'zapatos.html', 'accesorios.html', 'tecnologia.html', 'hogar.html'];
+      const contenedor = document.getElementById('productos');
+      contenedor.innerHTML = '';
+      const version = Date.now();
+
+      Promise.all(
+        archivos.map(a =>
+          fetch(`${a}?v=${version}`).then(r => r.ok ? r.text() : '').catch(() => '')
+        )
+      ).then(htmls => {
+        const contenido = htmls.join('').trim();
+        contenedor.innerHTML = contenido || '<p style="text-align:center; font-size:18px; color:#666;">No hay productos disponibles actualmente.</p>';
         actualizarCarrito?.();
-      })
-      .catch(() => {
-        document.getElementById('productos').innerHTML = '<p style="text-align:center; font-size:18px; color:#666;">Error al cargar productos.</p>';
       });
-  }
+    }
 
-  function cargarTodasLasSecciones() {
-    const archivos = ['bolsos.html', 'zapatos.html', 'accesorios.html', 'tecnologia.html', 'hogar.html'];
-    const contenedor = document.getElementById('productos');
-    contenedor.innerHTML = '';
-    const version = Date.now();
+    function toggleCarrito() {
+      const c = document.getElementById('carrito');
+      c.style.display = c.style.display === 'block' ? 'none' : 'block';
+    }
 
-    Promise.all(
-      archivos.map(a =>
-        fetch(`${a}?v=${version}`).then(r => r.ok ? r.text() : '').catch(() => '')
-      )
-    ).then(htmls => {
-      const contenido = htmls.join('').trim();
-      contenedor.innerHTML = contenido || '<p style="text-align:center; font-size:18px; color:#666;">No hay productos disponibles actualmente.</p>';
-      actualizarCarrito?.();
+    document.addEventListener('DOMContentLoaded', () => {
+      cargarTodasLasSecciones();
     });
-  }
-
-  function toggleCarrito() {
-    const c = document.getElementById('carrito');
-    c.style.display = c.style.display === 'block' ? 'none' : 'block';
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    cargarTodasLasSecciones();
-  });
-</script>
-
-  <style>
-    .filtros {
-      text-align: center;
-      margin: 20px;
-    }
-    .filtros button {
-      background-color: #b35aa0;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      margin: 5px;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    .productos {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 20px;
-    }
-    .producto {
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      width: 220px;
-      text-align: center;
-      padding: 15px;
-    }
-    .producto img {
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 6px;
-    }
-
-    #carrito {
-      position: fixed;
-      right: 15px;
-      bottom: 70px;
-      background: #fff0f6;
-      border: 1px solid #b35aa0;
-      padding: 10px;
-      border-radius: 10px;
-      width: 260px;
-      max-height: 320px;
-      overflow-y: auto;
-      box-shadow: 0 0 10px #ccc;
-      z-index: 999;
-      display: none;
-    }
-
-    #toggle-carrito {
-      position: fixed;
-      right: 15px;
-      bottom: 15px;
-      background-color: #b35aa0;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      font-size: 20px;
-      cursor: pointer;
-      z-index: 1000;
-    }
-
-    #toggle-carrito span {
-      font-size: 14px;
-      position: absolute;
-      top: -8px;
-      right: -8px;
-      background: red;
-      color: white;
-      border-radius: 50%;
-      padding: 2px 6px;
-    }
-
-    #carrito h3 {
-      margin-top: 0;
-      color: #b35aa0;
-    }
-    #carrito ul {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 10px 0;
-    }
-    #carrito li {
-      margin-bottom: 5px;
-      font-size: 14px;
-    }
-
-    #carrito .acciones {
-      margin-top: 10px;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .btn-cantidad {
-      margin-left: 5px;
-      padding: 2px 6px;
-      font-size: 12px;
-    }
-
-    #total {
-      font-weight: bold;
-      margin-top: 10px;
-    }
-
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-        flex-direction: column;
-        background: #fff;
-        position: absolute;
-        top: 60px;
-        right: 10px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        padding: 10px;
-        z-index: 1000;
-      }
-      nav ul.active {
-        display: flex;
-      }
-      nav .menu-toggle {
-        display: block;
-        background: #b35aa0;
-        color: white;
-        padding: 10px;
-        border: none;
-        margin: 10px;
-        border-radius: 5px;
-      }
-      #carrito {
-        width: 90%;
-        max-height: 300px;
-      }
-    }
-  </style>
+  </script>
 </body>
 </html>
