@@ -92,7 +92,7 @@ footer {
   color: #888;
 }
 
-/* ---------- PRODUCTOS ---------- */
+/* PRODUCTOS */
 .productos {
   display: flex;
   flex-wrap: wrap;
@@ -146,7 +146,7 @@ footer {
   background-color: #a0448a;
 }
 
-/* ---------- ETIQUETAS DE STOCK ---------- */
+/* ETIQUETAS DE STOCK */
 .etiqueta-stock {
   position: absolute;
   top: 10px;
@@ -164,7 +164,7 @@ footer {
   background-color: #cc0000;
 }
 
-/* ---------- CARRITO ---------- */
+/* CARRITO */
 #carrito {
   position: fixed;
   right: 15px;
@@ -247,7 +247,7 @@ footer {
   padding: 2px 6px;
 }
 
-/* ---------- FILTROS ---------- */
+/* FILTROS */
 .filtros {
   text-align: center;
   margin: 20px;
@@ -264,7 +264,7 @@ footer {
   font-weight: 600;
 }
 
-/* ---------- MENÚ HAMBURGUESA RESPONSIVO ---------- */
+/* MENÚ HAMBURGUESA RESPONSIVO */
 @media (max-width: 768px) {
   nav ul {
     display: none;
@@ -298,7 +298,8 @@ footer {
     max-height: 300px;
   }
 }
-/* ---------- CONTENEDOR ---------- */
+
+/* CONTENEDOR GENERAL */
 .contenido {
   max-width: 800px;
   margin: 40px auto;
@@ -309,7 +310,7 @@ footer {
   text-align: center;
 }
 
-/* --------- CONTACTO --------- */
+/* CONTACTO */
 .contacto-container {
   max-width: 800px;
   margin: 50px auto;
@@ -346,20 +347,8 @@ footer {
   font-size: 18px;
   margin-right: 6px;
 }
-/* --------- CÓMO COMPRAR --------- */
-body {
-  font-family: 'Inter', sans-serif;
-}
 
-.contenido {
-  max-width: 800px;
-  margin: 40px auto;
-  background-color: #fff0f6;
-  padding: 30px 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 12px rgba(0,0,0,0.08);
-}
-
+/* CÓMO COMPRAR */
 .contenido h1 {
   font-size: 26px;
   color: #b35aa0;
@@ -377,6 +366,7 @@ body {
   padding-left: 20px;
   margin-bottom: 25px;
   color: #444;
+  text-align: left;
 }
 
 .contenido ol li {
@@ -395,7 +385,7 @@ body {
 }
 
 .etiqueta-stock {
-  color: verde;
+  color: green;
   font-weight: bold;
 }
 
