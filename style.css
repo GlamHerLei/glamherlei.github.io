@@ -173,7 +173,7 @@ footer {
   border: 1px solid #b35aa0;
   padding: 10px;
   border-radius: 10px;
-  width: 300px;
+  width: 200px;
   max-height: 80vh;
   overflow-y: auto;
   box-shadow: 0 0 10px #ccc;
@@ -250,7 +250,7 @@ footer {
 }
 
 /* Versión móvil */
-@media (max-width: 768px) {
+@media (max-width: 568px) {
   #carrito {
     width: 90%;
     left: 5%;
