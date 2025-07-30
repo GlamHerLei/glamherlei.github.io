@@ -66,8 +66,8 @@ function actualizarCarrito() {
       <div><strong>${item.nombre}</strong></div>
       <div style="margin-bottom: 8px;">
         x${item.cantidad} - $${(item.precio * item.cantidad).toLocaleString()} 
-        <button class="btn-cantidad" onclick="agregarAlCarrito('${item.nombre}', ${item.precio})">+</button>
         <button class="btn-cantidad" onclick="quitarDelCarrito('${item.nombre}')">–</button>
+        <button class="btn-cantidad" onclick="agregarAlCarrito('${item.nombre}', ${item.precio})">+</button>
       </div>
     `;
     lista.appendChild(li);
