@@ -2,10 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: #fafafa;
-  margin: 0;
-  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #fbeff8;
+  color: #333;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /* NAV */
@@ -434,3 +437,57 @@ body {
     font-size: 15px;
   }
 }
+aca esta la cuesitooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+
+/* ================= NAVBAR ================= */
+nav {
+  background-color: #b35aa0;
+  color: #fff;
+  padding: 10px 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 12px;
+  transition: background 0.3s;
+}
+
+nav ul li a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+}
+
+/* ================= CONTENIDO ================= */
+.contenido {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.contenido h1,
+.contenido p,
+.contenido .boton {
+  text-align: center;
+}
+
+.contenido h1 {
+  margin-bottom: 15px;
+}
+
+.contenido p {
+  margin-bottom: 25px;
+}
+
