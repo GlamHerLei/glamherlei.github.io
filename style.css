@@ -1,22 +1,46 @@
-/* FUENTE MODERNA */
+Claro, Luis. Tu archivo CSS tiene varios conflictos de estilos duplicados y reglas que se pisan entre sí, especialmente con el `#carrito`, fuentes y el `body`. Aquí te lo dejo **corregido y ordenado**, enfocado en:
+
+- ✅ Mantener estilos consistentes sin duplicados.
+- ✅ Usar solo una fuente principal: `'Inter'`.
+- ✅ Arreglar el `#carrito` para que se vea bien tanto en escritorio como en móvil.
+
+---
+
+### ✅ CSS Limpio y Corregido para GlamHerLei
+
+```css
+/* FUENTE */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: #fafafa;
+/* RESET */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY GLOBAL */
+body {
+  font-family: 'Inter', sans-serif;
+  background: #fbeff8;
+  color: #333;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /* NAV */
 nav {
-  background-color: #fef2fb;
-  padding: 15px 20px;
+  background-color: #b35aa0;
+  color: #fff;
+  padding: 10px 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 nav ul {
-  list-style: none;
   display: flex;
+  list-style: none;
   justify-content: center;
   gap: 20px;
   padding: 0;
@@ -24,14 +48,26 @@ nav ul {
 }
 
 nav ul li a {
+  color: #fff;
   text-decoration: none;
-  color: #b35aa0;
-  font-weight: 600;
+  font-weight: bold;
   font-size: 16px;
+  padding: 8px 12px;
+  transition: background 0.3s;
+}
+
+nav ul li a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
 }
 
 nav .menu-toggle {
   display: none;
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
 }
 
 /* HERO CON BANNER */
@@ -61,12 +97,12 @@ nav .menu-toggle {
 
 .hero-text h1 {
   font-size: 36px;
-  margin: 0 0 10px;
+  margin-bottom: 10px;
 }
 
 .hero-text p {
   font-size: 18px;
-  margin: 0 0 20px;
+  margin-bottom: 20px;
 }
 
 .boton {
@@ -83,16 +119,7 @@ nav .menu-toggle {
   background-color: #9d4691;
 }
 
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #fef2fb;
-  font-size: 14px;
-  color: #888;
-}
-
-/* ---------- PRODUCTOS ---------- */
+/* PRODUCTOS */
 .productos {
   display: flex;
   flex-wrap: wrap;
@@ -109,7 +136,6 @@ footer {
   width: 220px;
   text-align: center;
   padding: 15px;
-  overflow: hidden;
   box-shadow: 0 0 5px rgba(0,0,0,0.05);
 }
 
@@ -127,7 +153,7 @@ footer {
 }
 
 .producto p {
-  margin: 0 0 10px;
+  margin-bottom: 10px;
   font-weight: 600;
   color: #444;
 }
@@ -146,7 +172,7 @@ footer {
   background-color: #a0448a;
 }
 
-/* ---------- ETIQUETAS DE STOCK ---------- */
+/* ETIQUETAS */
 .etiqueta-stock {
   position: absolute;
   top: 10px;
@@ -157,14 +183,13 @@ footer {
   font-weight: bold;
   padding: 4px 8px;
   border-radius: 6px;
-  z-index: 1;
 }
 
 .etiqueta-stock.espera {
   background-color: #cc0000;
 }
 
-/* ---------- CARRITO ---------- */
+/* CARRITO */
 #carrito {
   position: fixed;
   right: 15px;
@@ -184,14 +209,14 @@ footer {
 
 #carrito h3 {
   margin-top: 0;
-  color: #b35aa0;
   font-size: 18px;
+  color: #b35aa0;
 }
 
 #carrito ul {
   list-style: none;
   padding: 0;
-  margin: 0 0 10px 0;
+  margin: 0 0 10px;
 }
 
 #carrito li {
@@ -199,11 +224,6 @@ footer {
   font-size: 14px;
   display: flex;
   flex-direction: column;
-}
-
-#carrito li span {
-  display: block;
-  margin-bottom: 4px;
 }
 
 #carrito .acciones {
@@ -222,6 +242,7 @@ footer {
   cursor: pointer;
 }
 
+/* BOTÓN DE CARRITO */
 #toggle-carrito {
   position: fixed;
   right: 15px;
@@ -248,17 +269,7 @@ footer {
   padding: 2px 6px;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  #carrito {
-    width: fit-content;
-    max-width: 90%;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-/* ---------- FILTROS ---------- */
+/* FILTROS */
 .filtros {
   text-align: center;
   margin: 20px;
@@ -275,48 +286,16 @@ footer {
   font-weight: 600;
 }
 
-/* ---------- MENÚ HAMBURGUESA RESPONSIVO ---------- */
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-
-  nav ul {
-    flex-direction: column;
-    display: none;
-    margin-top: 10px;
-    gap: 10px;
-    background-color: #b35aa0; /* Fondo del menú desplegable */
-    padding: 10px 0;
-    border-radius: 8px;
-  }
-
-  nav ul li a {
-    color: white; /* Asegura que el texto se vea bien */
-  }
-
-  nav ul.active {
-    display: flex;
-  }
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #fef2fb;
+  font-size: 14px;
+  color: #888;
 }
 
-  nav .menu-toggle {
-    display: block;
-    background: #b35aa0;
-    color: white;
-    padding: 10px;
-    border: none;
-    margin: 10px;
-    border-radius: 5px;
-    font-weight: 600;
-  }
-
-  #carrito {
-    width: 90%;
-    max-height: 300px;
-  }
-}
-/* ---------- CONTENEDOR ---------- */
+/* CONTENIDO */
 .contenido {
   max-width: 800px;
   margin: 40px auto;
@@ -327,7 +306,7 @@ footer {
   text-align: center;
 }
 
-/* --------- CONTACTO --------- */
+/* CONTACTO */
 .contacto-container {
   max-width: 800px;
   margin: 50px auto;
@@ -339,9 +318,9 @@ footer {
 }
 
 .contacto-container h2 {
-  color: #b35aa0;
   font-size: 28px;
   margin-bottom: 20px;
+  color: #b35aa0;
 }
 
 .contacto-container p {
@@ -364,72 +343,16 @@ footer {
   font-size: 18px;
   margin-right: 6px;
 }
-/* --------- CÓMO COMPRAR --------- */
-body {
-  font-family: 'Inter', sans-serif;
-}
 
-.contenido {
-  max-width: 800px;
-  margin: 40px auto;
-  background-color: #fff0f6;
-  padding: 30px 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 12px rgba(0,0,0,0.08);
-}
-
-.contenido h1 {
-  font-size: 26px;
-  color: #b35aa0;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.contenido h1::before {
-  content: '👜';
-}
-
-.contenido ol {
-  padding-left: 20px;
-  margin-bottom: 25px;
-  color: #444;
-}
-
-.contenido ol li {
-  margin-bottom: 12px;
-  font-size: 16px;
-}
-
-.contenido strong {
-  color: #000;
-}
-
-.nota {
-  font-size: 15px;
-  color: #222;
-  margin-bottom: 10px;
-}
-
-.etiqueta-stock {
-  color: verde;
-  font-weight: bold;
-}
-
-.etiqueta-espera {
-  color: #b35aa0;
-  font-weight: bold;
-}
-
-.gracias {
-  font-weight: bold;
-  color: #b35aa0;
-  font-size: 17px;
-  margin-top: 25px;
-}
-
+/* RESPONSIVE CARRITO */
 @media (max-width: 600px) {
+  #carrito {
+    width: fit-content;
+    max-width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
   .contenido {
     margin: 20px;
     padding: 20px;
@@ -444,128 +367,4 @@ body {
   }
 }
 
-por ese?
-
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #fbeff8;
-  color: #333;
-  line-height: 1.6;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-/* Navbar */
-nav {
-  background-color: #b35aa0;
-  color: #fff;
-  padding: 10px 20px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-nav ul {
-  display: flex;
-  list-style: none;
-  justify-content: center;
-  gap: 20px;
-}
-
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 8px 12px;
-  transition: background 0.3s;
-}
-
-nav ul li a:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 6px;
-}
-
-/* Menú móvil */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 18px;
-  color: white;
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-
-  nav ul {
-    flex-direction: column;
-    display: none;
-    margin-top: 10px;
-    gap: 10px;
-  }
-
-  nav ul.active {
-    display: flex;
-  }
-}
-
-/* Contenido centrado */
-.contenido {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 40px 20px;
-}
-
-.contenido h1,
-.contenido p,
-.contenido .boton {
-  text-align: center;
-}
-
-.contenido h1 {
-  margin-bottom: 15px;
-}
-
-.contenido p {
-  margin-bottom: 25px;
-}
-
-/* Botón */
-.boton {
-  display: inline-block;
-  background: #b35aa0;
-  color: #fff;
-  text-decoration: none;
-  padding: 12px 24px;
-  font-weight: bold;
-  border-radius: 25px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  transition: background 0.3s, transform 0.2s;
-}
-
-.boton:hover {
-  background: #9d4791;
-  transform: translateY(-2px);
-}
-
-/* Footer */
-footer {
-  background-color: #f0d7ea;
-  text-align: center;
-  padding: 15px;
-  font-size: 14px;
-  color: #555;
-  margin-top: auto;
-}
+/* RESPONSIVE MEN
