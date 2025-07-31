@@ -167,16 +167,14 @@ footer {
 /* ---------- CARRITO ---------- */
 #carrito {
   position: fixed;
-  left: 50%;
+  right: 15px;
   bottom: 70px;
-  transform: translateX(-50%);
   background: #fff0f6;
   border: 1px solid #b35aa0;
   padding: 10px;
   border-radius: 10px;
-  width: fit-content;
-  max-width: 90%;
-  max-height: 200px;
+  width: 260px;
+  max-height: 320px;
   overflow-y: auto;
   box-shadow: 0 0 10px #ccc;
   z-index: 999;
@@ -185,14 +183,14 @@ footer {
 
 #carrito h3 {
   margin-top: 0;
-  font-size: 18px;
   color: #b35aa0;
+  font-size: 18px;
 }
 
 #carrito ul {
   list-style: none;
   padding: 0;
-  margin: 0 0 10px;
+  margin: 0 0 10px 0;
 }
 
 #carrito li {
@@ -223,7 +221,6 @@ footer {
   cursor: pointer;
 }
 
-/* BOTÓN DE CARRITO */
 #toggle-carrito {
   position: fixed;
   right: 15px;
@@ -250,14 +247,6 @@ footer {
   padding: 2px 6px;
 }
 
-/* RESPONSIVE CARRITO */
-@media (max-width: 600px) {
-  #carrito {
-    width: 90%;
-    max-height: 300px;
-  }
-}
-
 /* ---------- FILTROS ---------- */
 .filtros {
   text-align: center;
@@ -277,45 +266,38 @@ footer {
 
 /* ---------- MENÚ HAMBURGUESA RESPONSIVO ---------- */
 @media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-
   nav ul {
-    flex-direction: column;
     display: none;
-    margin-top: 10px;
-    gap: 10px;
-    background-color: #b35aa0;
-    padding: 10px 0;
-    border-radius: 8px;
-  }
-
-  nav ul li a {
-    color: white;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 10px;
+    z-index: 1000;
   }
 
   nav ul.active {
     display: flex;
   }
-}
 
-nav .menu-toggle {
-  display: block;
-  background: #b35aa0;
-  color: white;
-  padding: 10px;
-  border: none;
-  margin: 10px;
-  border-radius: 5px;
-  font-weight: 600;
-}
+  nav .menu-toggle {
+    display: block;
+    background: #b35aa0;
+    color: white;
+    padding: 10px;
+    border: none;
+    margin: 10px;
+    border-radius: 5px;
+    font-weight: 600;
+  }
 
-#carrito {
-  width: 90%;
-  max-height: 300px;
+  #carrito {
+    width: 90%;
+    max-height: 300px;
+  }
 }
-
 /* ---------- CONTENEDOR ---------- */
 .contenido {
   max-width: 800px;
@@ -364,7 +346,208 @@ nav .menu-toggle {
   font-size: 18px;
   margin-right: 6px;
 }
-
 /* --------- CÓMO COMPRAR --------- */
 body {
-  font-family
+  font-family: 'Inter', sans-serif;
+}
+
+.contenido {
+  max-width: 800px;
+  margin: 40px auto;
+  background-color: #fff0f6;
+  padding: 30px 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.08);
+}
+
+.contenido h1 {
+  font-size: 26px;
+  color: #b35aa0;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contenido h1::before {
+  content: '👜';
+}
+
+.contenido ol {
+  padding-left: 20px;
+  margin-bottom: 25px;
+  color: #444;
+}
+
+.contenido ol li {
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+.contenido strong {
+  color: #000;
+}
+
+.nota {
+  font-size: 15px;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.etiqueta-stock {
+  color: verde;
+  font-weight: bold;
+}
+
+.etiqueta-espera {
+  color: #b35aa0;
+  font-weight: bold;
+}
+
+.gracias {
+  font-weight: bold;
+  color: #b35aa0;
+  font-size: 17px;
+  margin-top: 25px;
+}
+
+@media (max-width: 600px) {
+  .contenido {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .contenido h1 {
+    font-size: 22px;
+  }
+
+  .contenido ol li {
+    font-size: 15px;
+  }
+}
+
+por ese?
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #fbeff8;
+  color: #333;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Navbar */
+nav {
+  background-color: #b35aa0;
+  color: #fff;
+  padding: 10px 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 12px;
+  transition: background 0.3s;
+}
+
+nav ul li a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+}
+
+/* Menú móvil */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav ul {
+    flex-direction: column;
+    display: none;
+    margin-top: 10px;
+    gap: 10px;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+}
+
+/* Contenido centrado */
+.contenido {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.contenido h1,
+.contenido p,
+.contenido .boton {
+  text-align: center;
+}
+
+.contenido h1 {
+  margin-bottom: 15px;
+}
+
+.contenido p {
+  margin-bottom: 25px;
+}
+
+/* Botón */
+.boton {
+  display: inline-block;
+  background: #b35aa0;
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 24px;
+  font-weight: bold;
+  border-radius: 25px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: background 0.3s, transform 0.2s;
+}
+
+.boton:hover {
+  background: #9d4791;
+  transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+  background-color: #f0d7ea;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+  color: #555;
+  margin-top: auto;
+}
