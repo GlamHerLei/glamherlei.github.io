@@ -290,6 +290,16 @@ footer {
     display: flex;
   }
 }
+nav .menu-toggle { 
+  display: block; 
+  background: #b35aa0; 
+  color: white; 
+  padding: 10px; 
+  border: none; 
+  margin: 10px; 
+  border-radius: 5px; 
+  font-weight: 600; 
+}
 
 /* ---------- CONTENEDOR ---------- */
 .contenido {
