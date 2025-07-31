@@ -1,35 +1,22 @@
-/* FUENTE */
+/* FUENTE MODERNA */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
-/* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* BODY GLOBAL */
 body {
   font-family: 'Inter', sans-serif;
-  background: #fbeff8;
-  color: #333;
-  line-height: 1.6;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  background-color: #fafafa;
+  margin: 0;
+  padding: 0;
 }
 
 /* NAV */
 nav {
-  background-color: #b35aa0;
-  color: #fff;
-  padding: 10px 20px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  background-color: #fef2fb;
+  padding: 15px 20px;
 }
 
 nav ul {
-  display: flex;
   list-style: none;
+  display: flex;
   justify-content: center;
   gap: 20px;
   padding: 0;
@@ -37,26 +24,14 @@ nav ul {
 }
 
 nav ul li a {
-  color: #fff;
   text-decoration: none;
-  font-weight: bold;
+  color: #b35aa0;
+  font-weight: 600;
   font-size: 16px;
-  padding: 8px 12px;
-  transition: background 0.3s;
-}
-
-nav ul li a:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 6px;
 }
 
 nav .menu-toggle {
   display: none;
-  background: none;
-  border: none;
-  font-size: 18px;
-  color: white;
-  cursor: pointer;
 }
 
 /* HERO CON BANNER */
@@ -86,12 +61,12 @@ nav .menu-toggle {
 
 .hero-text h1 {
   font-size: 36px;
-  margin-bottom: 10px;
+  margin: 0 0 10px;
 }
 
 .hero-text p {
   font-size: 18px;
-  margin-bottom: 20px;
+  margin: 0 0 20px;
 }
 
 .boton {
@@ -108,7 +83,16 @@ nav .menu-toggle {
   background-color: #9d4691;
 }
 
-/* PRODUCTOS */
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #fef2fb;
+  font-size: 14px;
+  color: #888;
+}
+
+/* ---------- PRODUCTOS ---------- */
 .productos {
   display: flex;
   flex-wrap: wrap;
@@ -125,6 +109,7 @@ nav .menu-toggle {
   width: 220px;
   text-align: center;
   padding: 15px;
+  overflow: hidden;
   box-shadow: 0 0 5px rgba(0,0,0,0.05);
 }
 
@@ -142,7 +127,7 @@ nav .menu-toggle {
 }
 
 .producto p {
-  margin-bottom: 10px;
+  margin: 0 0 10px;
   font-weight: 600;
   color: #444;
 }
@@ -161,7 +146,7 @@ nav .menu-toggle {
   background-color: #a0448a;
 }
 
-/* ETIQUETAS */
+/* ---------- ETIQUETAS DE STOCK ---------- */
 .etiqueta-stock {
   position: absolute;
   top: 10px;
@@ -172,13 +157,14 @@ nav .menu-toggle {
   font-weight: bold;
   padding: 4px 8px;
   border-radius: 6px;
+  z-index: 1;
 }
 
 .etiqueta-stock.espera {
   background-color: #cc0000;
 }
 
-/* CARRITO */
+/* ---------- CARRITO ---------- */
 #carrito {
   position: fixed;
   right: 15px;
@@ -198,14 +184,14 @@ nav .menu-toggle {
 
 #carrito h3 {
   margin-top: 0;
-  font-size: 18px;
   color: #b35aa0;
+  font-size: 18px;
 }
 
 #carrito ul {
   list-style: none;
   padding: 0;
-  margin: 0 0 10px;
+  margin: 0 0 10px 0;
 }
 
 #carrito li {
@@ -213,6 +199,11 @@ nav .menu-toggle {
   font-size: 14px;
   display: flex;
   flex-direction: column;
+}
+
+#carrito li span {
+  display: block;
+  margin-bottom: 4px;
 }
 
 #carrito .acciones {
@@ -231,7 +222,6 @@ nav .menu-toggle {
   cursor: pointer;
 }
 
-/* BOTÓN DE CARRITO */
 #toggle-carrito {
   position: fixed;
   right: 15px;
@@ -258,7 +248,17 @@ nav .menu-toggle {
   padding: 2px 6px;
 }
 
-/* FILTROS */
+/* Responsive */
+@media (max-width: 600px) {
+  #carrito {
+    width: fit-content;
+    max-width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------- FILTROS ---------- */
 .filtros {
   text-align: center;
   margin: 20px;
@@ -275,16 +275,48 @@ nav .menu-toggle {
   font-weight: 600;
 }
 
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #fef2fb;
-  font-size: 14px;
-  color: #888;
+/* ---------- MENÚ HAMBURGUESA RESPONSIVO ---------- */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav ul {
+    flex-direction: column;
+    display: none;
+    margin-top: 10px;
+    gap: 10px;
+    background-color: #b35aa0;
+    padding: 10px 0;
+    border-radius: 8px;
+  }
+
+  nav ul li a {
+    color: white;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
 }
 
-/* CONTENIDO */
+nav .menu-toggle {
+  display: block;
+  background: #b35aa0;
+  color: white;
+  padding: 10px;
+  border: none;
+  margin: 10px;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+#carrito {
+  width: 90%;
+  max-height: 300px;
+}
+
+/* ---------- CONTENEDOR ---------- */
 .contenido {
   max-width: 800px;
   margin: 40px auto;
@@ -295,7 +327,7 @@ footer {
   text-align: center;
 }
 
-/* CONTACTO */
+/* --------- CONTACTO --------- */
 .contacto-container {
   max-width: 800px;
   margin: 50px auto;
@@ -307,9 +339,9 @@ footer {
 }
 
 .contacto-container h2 {
+  color: #b35aa0;
   font-size: 28px;
   margin-bottom: 20px;
-  color: #b35aa0;
 }
 
 .contacto-container p {
@@ -333,27 +365,6 @@ footer {
   margin-right: 6px;
 }
 
-/* RESPONSIVE CARRITO */
-@media (max-width: 600px) {
-  #carrito {
-    width: fit-content;
-    max-width: 90%;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .contenido {
-    margin: 20px;
-    padding: 20px;
-  }
-
-  .contenido h1 {
-    font-size: 22px;
-  }
-
-  .contenido ol li {
-    font-size: 15px;
-  }
-}
-
-/* RESPONSIVE MEN
+/* --------- CÓMO COMPRAR --------- */
+body {
+  font-family
