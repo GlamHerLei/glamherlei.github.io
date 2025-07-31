@@ -167,15 +167,13 @@ footer {
 /* ---------- CARRITO CORREGIDO ---------- */
 #carrito {
   position: fixed;
-  left: 50%;
-  bottom: 70px;
-  transform: translateX(-50%);
+  right: 15px;
+  bottom: 70px; /* Justo encima del botón de carrito */
   background: #fff0f6;
   border: 1px solid #b35aa0;
   padding: 10px;
   border-radius: 10px;
-  width: fit-content;
-  max-width: 90%;
+  width: 270px; /* 10px más ancho */
   max-height: 300px;
   overflow-y: auto;
   box-shadow: 0 0 10px #ccc;
@@ -211,6 +209,7 @@ footer {
   margin-top: 10px;
   display: flex;
   justify-content: space-between;
+  gap: 10px; /* <--- Aquí separamos los botones */
 }
 
 .btn-cantidad {
@@ -223,7 +222,7 @@ footer {
   cursor: pointer;
 }
 
-/* Botón flotante */
+/* ---------- BOTÓN DE CARRITO ---------- */
 #toggle-carrito {
   position: fixed;
   right: 15px;
@@ -249,7 +248,6 @@ footer {
   border-radius: 50%;
   padding: 2px 6px;
 }
-
 
 /* ---------- FILTROS ---------- */
 .filtros {
