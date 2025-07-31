@@ -267,6 +267,12 @@ footer {
 }
 
 /* ---------- MENÚ HAMBURGUESA RESPONSIVO SOLO PARA MÓVIL ---------- */
+/* Fuera del media query (escritorio) */
+.menu-toggle {
+  display: none;
+}
+
+/* Dentro del media query (móvil) */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
@@ -277,11 +283,13 @@ footer {
     margin: 10px;
     border-radius: 5px;
     font-weight: 600;
+    font-size: 18px;
+    cursor: pointer;
   }
 
   nav ul {
-    flex-direction: column;
     display: none;
+    flex-direction: column;
     margin-top: 10px;
     gap: 10px;
     background-color: #b35aa0;
@@ -289,14 +297,15 @@ footer {
     border-radius: 8px;
   }
 
-  nav ul li a {
-    color: white;
-  }
-
   nav ul.active {
     display: flex;
   }
+
+  nav ul li a {
+    color: white;
+  }
 }
+
 
 /* ---------- CONTENEDOR ---------- */
 .contenido {
