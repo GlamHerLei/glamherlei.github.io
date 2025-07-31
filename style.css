@@ -252,7 +252,10 @@ footer {
 /* Responsive para móviles */
 @media (max-width: 600px) {
   #carrito {
-    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: fit-content;
+    max-width: 90%;
     max-height: 300px;
   }
 }
