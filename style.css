@@ -164,17 +164,19 @@ footer {
   background-color: #cc0000;
 }
 
-/* ---------- CARRITO ---------- */
+/* ---------- CARRITO CORREGIDO ---------- */
 #carrito {
   position: fixed;
-  right: 15px;
+  left: 50%;
   bottom: 70px;
+  transform: translateX(-50%);
   background: #fff0f6;
   border: 1px solid #b35aa0;
   padding: 10px;
   border-radius: 10px;
-  width: 260px;
-  max-height: 320px;
+  width: fit-content;
+  max-width: 90%;
+  max-height: 300px;
   overflow-y: auto;
   box-shadow: 0 0 10px #ccc;
   z-index: 999;
@@ -183,14 +185,14 @@ footer {
 
 #carrito h3 {
   margin-top: 0;
-  color: #b35aa0;
   font-size: 18px;
+  color: #b35aa0;
 }
 
 #carrito ul {
   list-style: none;
   padding: 0;
-  margin: 0 0 10px 0;
+  margin: 0 0 10px;
 }
 
 #carrito li {
@@ -221,6 +223,7 @@ footer {
   cursor: pointer;
 }
 
+/* Botón flotante */
 #toggle-carrito {
   position: fixed;
   right: 15px;
@@ -246,6 +249,7 @@ footer {
   border-radius: 50%;
   padding: 2px 6px;
 }
+
 
 /* ---------- FILTROS ---------- */
 .filtros {
@@ -289,22 +293,6 @@ footer {
   }
 }
 
-  nav .menu-toggle {
-    display: block;
-    background: #b35aa0;
-    color: white;
-    padding: 10px;
-    border: none;
-    margin: 10px;
-    border-radius: 5px;
-    font-weight: 600;
-  }
-
-  #carrito {
-    width: 90%;
-    max-height: 300px;
-  }
-}
 /* ---------- CONTENEDOR ---------- */
 .contenido {
   max-width: 800px;
