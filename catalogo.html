@@ -60,5 +60,19 @@
   <footer>
     <p>&copy; 2025 GlamHerLei - Todos los derechos reservados</p>
   </footer>
+
+<!-- 🔄 MENÚ DESPLEGABLE FUNCIONAL -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggle = document.querySelector(".menu-toggle");
+      const navList = document.querySelector("nav ul");
+
+      toggle.addEventListener("click", () => {
+        navList.classList.toggle("active");
+      });
+    });
+  </script>
+
+  
 </body>
 </html>
