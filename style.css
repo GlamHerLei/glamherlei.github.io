@@ -223,6 +223,7 @@ footer {
   cursor: pointer;
 }
 
+/* Botón flotante para abrir/cerrar el carrito */
 #toggle-carrito {
   position: fixed;
   right: 15px;
@@ -249,12 +250,12 @@ footer {
   padding: 2px 6px;
 }
 
-/* Versión móvil */
-@media (max-width: 368px) {
+/* Versión móvil y tablets */
+@media (max-width: 768px) {
   #carrito {
-    width: 50%;
+    width: 90%;
     left: 5%;
-    right: 10%;
+    right: 5%;
     bottom: 80px;
   }
 }
