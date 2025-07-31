@@ -291,26 +291,25 @@ footer {
     cursor: pointer;
   }
 
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   nav ul {
     display: none;
     flex-direction: column;
-    margin-top: 10px;
     gap: 10px;
-    background-color: #b35aa0;
+    width: 100%;
     padding: 10px 0;
     border-radius: 8px;
+    background-color: #b35aa0;
   }
 
   nav ul.active {
     display: flex;
   }
-
-  nav ul li a {
-    color: white;
-    font-weight: bold;
-  }
 }
-
 /* ---------- CONTENEDOR ---------- */
 .contenido {
   max-width: 800px;
