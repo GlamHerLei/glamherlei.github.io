@@ -164,7 +164,7 @@ footer {
   background-color: #cc0000;
 }
 
-/* ---------- CARRITO (Corregido) ---------- */
+/* ---------- CARRITO ---------- */
 #carrito {
   position: fixed;
   right: 15px;
@@ -173,90 +173,20 @@ footer {
   border: 1px solid #b35aa0;
   padding: 10px;
   border-radius: 10px;
-  width: 320px; /* Tamaño fijo más controlado */
-  max-height: 60vh;
+  width: 300px; /* ancho controlado para escritorio */
+  max-height: 320px;
   overflow-y: auto;
   box-shadow: 0 0 10px #ccc;
   z-index: 999;
   display: none;
 }
 
-#carrito h3 {
-  margin-top: 0;
-  color: #b35aa0;
-  font-size: 18px;
-}
-
-#carrito ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 10px 0;
-}
-
-#carrito li {
-  margin-bottom: 8px;
-  font-size: 14px;
-  display: flex;
-  flex-direction: column;
-}
-
-#carrito li span {
-  display: block;
-  margin-bottom: 4px;
-}
-
-#carrito .acciones {
-  margin-top: 10px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.btn-cantidad {
-  margin-left: 5px;
-  padding: 2px 6px;
-  font-size: 12px;
-  border: none;
-  background-color: #ddd;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-/* Botón flotante para abrir/cerrar el carrito */
-#toggle-carrito {
-  position: fixed;
-  right: 15px;
-  bottom: 15px;
-  background-color: #b35aa0;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  font-size: 20px;
-  cursor: pointer;
-  z-index: 1000;
-}
-
-#toggle-carrito span {
-  font-size: 14px;
-  position: absolute;
-  top: -8px;
-  right: -8px;
-  background: red;
-  color: white;
-  border-radius: 50%;
-  padding: 2px 6px;
-}
-
-/* Responsive para móviles */
-@media (max-width: 768px) {
+/* Móvil */
+@media (max-width: 600px) {
   #carrito {
     width: 90%;
     left: 5%;
     right: 5%;
-    bottom: 80px;
   }
 }
 
