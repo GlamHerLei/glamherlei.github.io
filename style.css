@@ -167,13 +167,14 @@ footer {
 /* ---------- CARRITO ---------- */
 #carrito {
   position: fixed;
-  right: 15px;
+  left: 50%;
   bottom: 70px;
+  transform: translateX(-50%);
   background: #fff0f6;
   border: 1px solid #b35aa0;
   padding: 10px;
   border-radius: 10px;
-  width: 300px;
+  width: fit-content;
   max-width: 90%;
   max-height: 200px;
   overflow-y: auto;
@@ -248,13 +249,11 @@ footer {
   padding: 2px 6px;
 }
 
-/* Responsive */
+/* Responsive para móviles */
 @media (max-width: 600px) {
   #carrito {
-    width: fit-content;
-    max-width: 90%;
-    left: 50%;
-    transform: translateX(-50%);
+    width: 90%;
+    max-height: 300px;
   }
 }
 
