@@ -250,11 +250,11 @@ footer {
 }
 
 /* Versión móvil */
-@media (max-width: 568px) {
+@media (max-width: 368px) {
   #carrito {
-    width: 90%;
+    width: 50%;
     left: 5%;
-    right: 5%;
+    right: 10%;
     bottom: 80px;
   }
 }
