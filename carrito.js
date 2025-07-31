@@ -89,11 +89,18 @@ document.addEventListener('DOMContentLoaded', () => {
   actualizarCarrito();
 });
 
-// Cierra el carrito si se hace clic fuera
+// Previene que el carrito se cierre al hacer clic en sus botones
 document.addEventListener('click', function (e) {
-  const carrito = document.getElementById('carrito');
+  const carritoEl = document.getElementById('carrito');
   const toggleBtn = document.getElementById('toggle-carrito');
-  if (!carrito.contains(e.target) && !toggleBtn.contains(e.target)) {
-    carrito.style.display = 'none';
-  }
+
+  // Si haces clic en el botón flotante, no cerrar
+  if (toggleBtn.contains(e.target)) return;
+
+  // Si haces clic DENTRO del carrito, no cerrar
+  if (carritoEl.contains(e.target)) return;
+
+  // Si haces clic FUERA, cerrar
+  carritoEl.style.display = 'none';
 });
+
