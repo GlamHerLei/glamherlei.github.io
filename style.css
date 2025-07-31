@@ -173,8 +173,8 @@ footer {
   border: 1px solid #b35aa0;
   padding: 10px;
   border-radius: 10px;
-  width: 200px;
-  max-height: 80vh;
+  width: 50%;
+  max-height: 50vh;
   overflow-y: auto;
   box-shadow: 0 0 10px #ccc;
   z-index: 999;
