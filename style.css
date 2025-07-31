@@ -266,10 +266,17 @@ footer {
   font-weight: 600;
 }
 
-/* ---------- MENÚ HAMBURGUESA RESPONSIVO ---------- */
+/* ---------- MENÚ HAMBURGUESA RESPONSIVO SOLO PARA MÓVIL ---------- */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
+    background: #b35aa0;
+    color: white;
+    padding: 10px;
+    border: none;
+    margin: 10px;
+    border-radius: 5px;
+    font-weight: 600;
   }
 
   nav ul {
@@ -277,29 +284,20 @@ footer {
     display: none;
     margin-top: 10px;
     gap: 10px;
-    background-color: #b35aa0; /* Fondo del menú desplegable */
+    background-color: #b35aa0;
     padding: 10px 0;
     border-radius: 8px;
   }
 
   nav ul li a {
-    color: white; /* Asegura que el texto se vea bien */
+    color: white;
   }
 
   nav ul.active {
     display: flex;
   }
 }
-nav .menu-toggle { 
-  display: block; 
-  background: #b35aa0; 
-  color: white; 
-  padding: 10px; 
-  border: none; 
-  margin: 10px; 
-  border-radius: 5px; 
-  font-weight: 600; 
-}
+
 /* ---------- CONTENEDOR ---------- */
 .contenido {
   max-width: 800px;
