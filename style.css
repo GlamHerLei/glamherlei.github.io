@@ -269,13 +269,14 @@ footer {
   font-weight: 600;
 }
 
-/* ---------- MENÚ HAMBURGUESA RESPONSIVO SOLO PARA MÓVIL ---------- */
-/* Fuera del media query (escritorio) */
+/* ---------- MENÚ HAMBURGUESA RESPONSIVO ---------- */
+
+/* Estilo base (escritorio) */
 .menu-toggle {
   display: none;
 }
 
-/* Dentro del media query (móvil) */
+/* Estilos comunes para el menú móvil */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
@@ -306,9 +307,9 @@ footer {
 
   nav ul li a {
     color: white;
+    font-weight: bold;
   }
 }
-
 
 /* ---------- CONTENEDOR ---------- */
 .contenido {
