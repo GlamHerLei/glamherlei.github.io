@@ -164,7 +164,7 @@ footer {
   background-color: #cc0000;
 }
 
-/* ---------- CARRITO ---------- */
+/* ---------- CARRITO (Corregido) ---------- */
 #carrito {
   position: fixed;
   right: 15px;
@@ -173,8 +173,8 @@ footer {
   border: 1px solid #b35aa0;
   padding: 10px;
   border-radius: 10px;
-  width: 260px;
-  max-height: 320px;
+  width: 320px; /* Tamaño fijo más controlado */
+  max-height: 60vh;
   overflow-y: auto;
   box-shadow: 0 0 10px #ccc;
   z-index: 999;
@@ -209,6 +209,8 @@ footer {
   margin-top: 10px;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .btn-cantidad {
@@ -221,6 +223,7 @@ footer {
   cursor: pointer;
 }
 
+/* Botón flotante para abrir/cerrar el carrito */
 #toggle-carrito {
   position: fixed;
   right: 15px;
@@ -245,6 +248,16 @@ footer {
   color: white;
   border-radius: 50%;
   padding: 2px 6px;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  #carrito {
+    width: 90%;
+    left: 5%;
+    right: 5%;
+    bottom: 80px;
+  }
 }
 
 /* ---------- FILTROS ---------- */
