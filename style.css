@@ -1,439 +1,117 @@
-/* FUENTE MODERNA */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #fbeff8;
-  color: #333;
-  line-height: 1.6;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+/* RESET BÁSICO */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* NAV */
+/* FUENTES Y FONDO GLOBAL */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff0f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* NAVEGACIÓN */
 nav {
-  background-color: #fef2fb;
+  background-color: #b35aa0;
+  color: #fff;
   padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  justify-content: center;
   gap: 20px;
-  padding: 0;
-  margin: 0;
 }
 
 nav ul li a {
-  text-decoration: none;
-  color: #b35aa0;
-  font-weight: 600;
-  font-size: 16px;
-}
-
-nav .menu-toggle {
-  display: none;
-}
-
-/* HERO CON BANNER */
-.hero {
-  position: relative;
-  text-align: center;
   color: #fff;
-}
-
-.banner {
-  width: 100%;
-  max-height: 500px;
-  object-fit: cover;
-  display: block;
-}
-
-.hero-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.4);
-  padding: 30px 20px;
-  border-radius: 12px;
-  max-width: 90%;
-}
-
-.hero-text h1 {
-  font-size: 36px;
-  margin: 0 0 10px;
-}
-
-.hero-text p {
-  font-size: 18px;
-  margin: 0 0 20px;
-}
-
-.boton {
-  background-color: #b35aa0;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
-  transition: background-color 0.3s;
+  transition: color 0.3s ease;
 }
 
-.boton:hover {
-  background-color: #9d4691;
+nav ul li a:hover {
+  color: #fbd4e6;
 }
 
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #fef2fb;
-  font-size: 14px;
-  color: #888;
-}
-
-/* ---------- PRODUCTOS ---------- */
-.productos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px;
-}
-
-.producto {
-  position: relative;
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  width: 220px;
-  text-align: center;
-  padding: 15px;
-  overflow: hidden;
-  box-shadow: 0 0 5px rgba(0,0,0,0.05);
-}
-
-.producto img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 6px;
-}
-
-.producto h3 {
-  font-size: 16px;
-  margin: 10px 0 5px;
-  color: #333;
-}
-
-.producto p {
-  margin: 0 0 10px;
-  font-weight: 600;
-  color: #444;
-}
-
-.producto button {
-  background-color: #b35aa0;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.producto button:hover {
-  background-color: #a0448a;
-}
-
-/* ---------- ETIQUETAS DE STOCK ---------- */
-.etiqueta-stock {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background-color: green;
-  color: white;
-  font-size: 12px;
-  font-weight: bold;
-  padding: 4px 8px;
-  border-radius: 6px;
-  z-index: 1;
-}
-
-.etiqueta-stock.espera {
-  background-color: #cc0000;
-}
-
-/* ---------- CARRITO  ---------- */
-#carrito {
-  position: fixed;
-  right: 15px;
-  bottom: 70px; /* Justo encima del botón de carrito */
-  background: #fff0f6;
-  border: 1px solid #b35aa0;
-  padding: 10px;
-  border-radius: 10px;
-  width: 270px; /* 10px más ancho */
-  max-height: 300px;
-  overflow-y: auto;
-  box-shadow: 0 0 10px #ccc;
-  z-index: 999;
-  display: none;
-}
-
-#carrito h3 {
-  margin-top: 0;
-  font-size: 18px;
-  color: #b35aa0;
-}
-
-#carrito ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 10px;
-}
-
-#carrito li {
-  margin-bottom: 8px;
-  font-size: 14px;
-  display: flex;
-  flex-direction: column;
-}
-
-#carrito li span {
-  display: block;
-  margin-bottom: 4px;
-}
-
-#carrito .acciones {
-  margin-top: 10px;
-  display: flex;
-  justify-content: space-between;
-  gap: 3px; /* <--- Aquí separamos los botones */
-}
-
-.btn-cantidad {
-  margin-left: 5px;
-  padding: 2px 6px;
-  font-size: 12px;
-  border: none;
-  background-color: #ddd;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-/* ---------- BOTÓN DE CARRITO ---------- */
-#toggle-carrito {
-  position: fixed;
-  right: 15px;
-  bottom: 15px;
-  background-color: #b35aa0;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  font-size: 20px;
-  cursor: pointer;
-  z-index: 1000;
-}
-
-#toggle-carrito span {
-  font-size: 14px;
-  position: absolute;
-  top: -8px;
-  right: -8px;
-  background: red;
-  color: white;
-  border-radius: 50%;
-  padding: 2px 6px;
-}
-
-/* ---------- FILTROS ---------- */
-.filtros {
-  text-align: center;
-  margin: 20px;
-}
-
-.filtros button {
-  background-color: #b35aa0;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  margin: 5px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-/* ---------- MENÚ HAMBURGUESA RESPONSIVO ---------- */
-
-/* Estilo base (escritorio) */
+/* BOTÓN DE MENÚ MÓVIL */
 .menu-toggle {
   display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
 }
 
-/* Estilos comunes para el menú móvil */
 @media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-    background: #b35aa0;
-    color: white;
-    padding: 10px;
-    border: none;
-    margin: 10px;
-    border-radius: 5px;
-    font-weight: 600;
-    font-size: 18px;
-    cursor: pointer;
-  }
-
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
   nav ul {
-    display: none;
     flex-direction: column;
-    gap: 10px;
+    display: none;
     width: 100%;
-    padding: 10px 0;
-    border-radius: 8px;
     background-color: #b35aa0;
+    padding-top: 10px;
   }
 
   nav ul.active {
     display: flex;
   }
+
+  .menu-toggle {
+    display: block;
+  }
 }
-/* ---------- CONTENEDOR ---------- */
+
+/* SECCIÓN DE CONTENIDO PRINCIPAL */
 .contenido {
-  max-width: 800px;
-  margin: 40px auto;
-  background-color: #fff0f6;
-  padding: 30px 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
   text-align: center;
-}
-
-/* --------- CONTACTO --------- */
-.contacto-container {
+  padding: 80px 20px;
   max-width: 800px;
-  margin: 50px auto;
-  padding: 30px;
-  background-color: #fff0f6;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  text-align: center;
-}
-
-.contacto-container h2 {
-  color: #b35aa0;
-  font-size: 28px;
-  margin-bottom: 20px;
-}
-
-.contacto-container p {
-  font-size: 16px;
-  margin: 15px 0;
-  color: #444;
-}
-
-.contacto-container a {
-  color: #b35aa0;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.contacto-container a:hover {
-  text-decoration: underline;
-}
-
-.icono-contacto {
-  font-size: 18px;
-  margin-right: 6px;
-}
-/* --------- CÓMO COMPRAR --------- */
-body {
-  font-family: 'Inter', sans-serif;
-}
-
-.contenido {
-  max-width: 800px;
-  margin: 40px auto;
-  background-color: #fff0f6;
-  padding: 30px 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 12px rgba(0,0,0,0.08);
+  margin: auto;
 }
 
 .contenido h1 {
-  font-size: 26px;
+  font-size: 36px;
   color: #b35aa0;
   margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
 }
 
-.contenido h1::before {
-  content: '👜';
+.contenido p {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 30px;
 }
 
-.contenido ol {
-  padding-left: 20px;
-  margin-bottom: 25px;
-  color: #444;
-}
-
-.contenido ol li {
-  margin-bottom: 12px;
-  font-size: 16px;
-}
-
-.contenido strong {
-  color: #000;
-}
-
-.nota {
-  font-size: 15px;
-  color: #222;
-  margin-bottom: 10px;
-}
-
-.etiqueta-stock {
-  color: verde;
+/* BOTÓN PRINCIPAL */
+.boton {
+  display: inline-block;
+  background-color: #b35aa0;
+  color: white;
+  padding: 12px 25px;
+  text-decoration: none;
+  border-radius: 30px;
   font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease;
 }
 
-.etiqueta-espera {
-  color: #b35aa0;
-  font-weight: bold;
+.boton:hover {
+  background-color: #9b4a8c;
 }
 
-.gracias {
-  font-weight: bold;
-  color: #b35aa0;
-  font-size: 17px;
-  margin-top: 25px;
-}
-
-@media (max-width: 600px) {
-  .contenido {
-    margin: 20px;
-    padding: 20px;
-  }
-
-  .contenido h1 {
-    font-size: 22px;
-  }
-
-  .contenido ol li {
-    font-size: 15px;
-  }
+/* FOOTER */
+footer {
+  background-color: #fbd4e6;
+  color: #333;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  margin-top: 80px;
 }
