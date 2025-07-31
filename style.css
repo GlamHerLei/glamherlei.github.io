@@ -1,14 +1,3 @@
-Claro, Luis. Tu archivo CSS tiene varios conflictos de estilos duplicados y reglas que se pisan entre sí, especialmente con el `#carrito`, fuentes y el `body`. Aquí te lo dejo **corregido y ordenado**, enfocado en:
-
-- ✅ Mantener estilos consistentes sin duplicados.
-- ✅ Usar solo una fuente principal: `'Inter'`.
-- ✅ Arreglar el `#carrito` para que se vea bien tanto en escritorio como en móvil.
-
----
-
-### ✅ CSS Limpio y Corregido para GlamHerLei
-
-```css
 /* FUENTE */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
