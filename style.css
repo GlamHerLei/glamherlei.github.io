@@ -185,14 +185,14 @@ footer {
 
 #carrito h3 {
   margin-top: 0;
-  color: #b35aa0;
   font-size: 18px;
+  color: #b35aa0;
 }
 
 #carrito ul {
   list-style: none;
   padding: 0;
-  margin: 0 0 10px 0;
+  margin: 0 0 10px;
 }
 
 #carrito li {
@@ -223,6 +223,7 @@ footer {
   cursor: pointer;
 }
 
+/* BOTÓN DE CARRITO */
 #toggle-carrito {
   position: fixed;
   right: 15px;
@@ -249,13 +250,10 @@ footer {
   padding: 2px 6px;
 }
 
-/* Responsive para móviles */
+/* RESPONSIVE CARRITO */
 @media (max-width: 600px) {
   #carrito {
-    left: 50%;
-    transform: translateX(-50%);
-    width: fit-content;
-    max-width: 90%;
+    width: 90%;
     max-height: 300px;
   }
 }
