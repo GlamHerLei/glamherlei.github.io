@@ -173,7 +173,8 @@ footer {
   border: 1px solid #b35aa0;
   padding: 10px;
   border-radius: 10px;
-  width: 100px;
+  width: 300px;
+  max-width: 90%;
   max-height: 200px;
   overflow-y: auto;
   box-shadow: 0 0 10px #ccc;
@@ -245,6 +246,16 @@ footer {
   color: white;
   border-radius: 50%;
   padding: 2px 6px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  #carrito {
+    width: fit-content;
+    max-width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 /* ---------- FILTROS ---------- */
