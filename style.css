@@ -209,7 +209,7 @@ footer {
   margin-top: 10px;
   display: flex;
   justify-content: space-between;
-  gap: 10px; /* <--- Aquí separamos los botones */
+  gap: 5px; /* <--- Aquí separamos los botones */
 }
 
 .btn-cantidad {
