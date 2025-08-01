@@ -157,7 +157,6 @@ footer {
   margin-top: auto;
 }
 
-
 /* ---------- PRODUCTOS ---------- */
 .productos {
   display: flex;
@@ -358,6 +357,7 @@ footer {
     border-radius: 5px;
     font-weight: 600;
   }
+}
 
 /* ---------- CONTENEDOR ---------- */
 .contenido {
@@ -407,18 +407,10 @@ footer {
   font-size: 18px;
   margin-right: 6px;
 }
+
 /* --------- CÓMO COMPRAR --------- */
 body {
   font-family: 'Inter', sans-serif;
-}
-
-.contenido {
-  max-width: 800px;
-  margin: 40px auto;
-  background-color: #fff0f6;
-  padding: 30px 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 12px rgba(0,0,0,0.08);
 }
 
 .contenido h1 {
@@ -486,4 +478,3 @@ body {
     font-size: 15px;
   }
 }
-
