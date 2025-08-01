@@ -62,15 +62,37 @@ function actualizarCarrito() {
 
   carrito.forEach(item => {
     const li = document.createElement('li');
-    li.innerHTML = `
-      <div><strong>${item.nombre}</strong></div>
-      <div style="margin-bottom: 8px;">
-        x${item.cantidad} - $${(item.precio * item.cantidad).toLocaleString()} 
-        <button class="btn-cantidad" onclick="quitarDelCarrito('${item.nombre}')">–</button>
-        <button class="btn-cantidad" onclick="agregarAlCarrito('${item.nombre}', ${item.precio})">+</button>
-      </div>
-    `;
+
+    const nombreDiv = document.createElement('div');
+    nombreDiv.innerHTML = `<strong>${item.nombre}</strong>`;
+
+    const botonesDiv = document.createElement('div');
+    botonesDiv.style.marginBottom = '8px';
+    botonesDiv.innerHTML = `x${item.cantidad} - $${(item.precio * item.cantidad).toLocaleString()} `;
+
+    const btnMenos = document.createElement('button');
+    btnMenos.className = 'btn-cantidad';
+    btnMenos.textContent = '–';
+    btnMenos.addEventListener('click', (e) => {
+      e.stopPropagation();
+      quitarDelCarrito(item.nombre);
+    });
+
+    const btnMas = document.createElement('button');
+    btnMas.className = 'btn-cantidad';
+    btnMas.textContent = '+';
+    btnMas.addEventListener('click', (e) => {
+      e.stopPropagation();
+      agregarAlCarrito(item.nombre, item.precio);
+    });
+
+    botonesDiv.appendChild(btnMenos);
+    botonesDiv.appendChild(btnMas);
+
+    li.appendChild(nombreDiv);
+    li.appendChild(botonesDiv);
     lista.appendChild(li);
+
     total += item.precio * item.cantidad;
     totalCantidad += item.cantidad;
   });
