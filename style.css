@@ -20,15 +20,14 @@ body {
 
 /* NAV */
 nav {
-  background-color: #b35aa0;
+  background-color: #b35aa0; /* tono glamoroso */
   color: #fff;
-  padding: 10px 20px;
+  padding: 12px 20px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  transition: background-color 0.3s ease;
-}
-
-nav:hover {
-  background-color: #d88dc4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
 }
 
 nav ul {
@@ -36,19 +35,47 @@ nav ul {
   display: flex;
   justify-content: center;
   gap: 20px;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 nav ul li a {
+  color: #fff;
   text-decoration: none;
-  color: #b35aa0;
   font-weight: 600;
   font-size: 16px;
+  padding: 8px 12px;
+  transition: background 0.3s;
 }
 
-nav .menu-toggle {
+nav ul li a:hover {
+  background: rgba(255,255,255,0.15);
+  border-radius: 6px;
+}
+
+.menu-toggle {
   display: none;
+  font-size: 22px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav ul {
+    flex-direction: column;
+    display: none;
+    margin-top: 10px;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
 }
 
 /* HERO CON BANNER */
@@ -76,38 +103,33 @@ nav .menu-toggle {
   max-width: 90%;
 }
 
-.hero-text h1 {
-  font-size: 36px;
-  margin: 0 0 10px;
-}
-
-.hero-text p {
-  font-size: 18px;
-  margin: 0 0 20px;
-}
-
 .boton {
   background-color: #b35aa0;
   color: white;
   padding: 12px 24px;
-  border-radius: 8px;
+  border-radius: 25px;
   text-decoration: none;
   font-weight: bold;
-  transition: background-color 0.3s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: background 0.3s, transform 0.2s;
 }
 
 .boton:hover {
   background-color: #9d4691;
+  transform: translateY(-2px);
 }
+
 
 /* FOOTER */
 footer {
+  background-color: #f0d7ea; /* más cálido que #fef2fb */
   text-align: center;
   padding: 20px;
-  background-color: #fef2fb;
   font-size: 14px;
-  color: #888;
+  color: #555;
+  margin-top: auto;
 }
+
 
 /* ---------- PRODUCTOS ---------- */
 .productos {
