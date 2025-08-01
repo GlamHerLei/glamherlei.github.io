@@ -303,12 +303,12 @@ footer {
     display: none;
     flex-direction: column;
     background-color: #b35aa0;
-    padding: 15px;
+    padding: 5px;
     border-radius: 8px;
     margin-top: 10px;
     position: absolute;
-    top: 60px;
-    right: 10px;
+    top: 50px;
+    left: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     z-index: 1000;
   }
@@ -321,7 +321,7 @@ footer {
     color: white;
     background-color: transparent;
     display: block;
-    padding: 10px 15px;
+    padding: 0px 1px;
     border-radius: 6px;
   }
 
