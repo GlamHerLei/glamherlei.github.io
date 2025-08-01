@@ -62,50 +62,6 @@ nav ul li a:hover {
   cursor: pointer;
 }
 
-/* Estilos para móviles */
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-
-  nav ul {
-    display: none;
-    flex-direction: column;
-    background-color: #b35aa0;
-    padding: 15px;
-    border-radius: 8px;
-    margin-top: 10px;
-  }
-
-  nav ul.active {
-    display: flex;
-  }
-
-  nav ul li a {
-    color: white;
-    background-color: transparent;
-    display: block;
-    padding: 10px 15px;
-  }
-
-  nav ul li a:hover {
-    background-color: rgba(255,255,255,0.1);
-    border-radius: 6px;
-  }
-}
-
-/* Estilos para escritorio */
-@media (min-width: 769px) {
-  .menu-toggle {
-    display: none !important;
-  }
-
-  nav ul {
-    display: flex !important;
-    flex-direction: row;
-  }
-}
-
 /* HERO CON BANNER */
 .hero {
   position: relative;
@@ -157,7 +113,7 @@ footer {
   margin-top: auto;
 }
 
-/* ---------- PRODUCTOS ---------- */
+/* PRODUCTOS */
 .productos {
   display: flex;
   flex-wrap: wrap;
@@ -211,7 +167,7 @@ footer {
   background-color: #a0448a;
 }
 
-/* ---------- ETIQUETAS DE STOCK ---------- */
+/* ETIQUETAS DE STOCK */
 .etiqueta-stock {
   position: absolute;
   top: 10px;
@@ -229,7 +185,7 @@ footer {
   background-color: #cc0000;
 }
 
-/* ---------- CARRITO ---------- */
+/* CARRITO (NO TOCADO) */
 #carrito {
   position: fixed;
   right: 15px;
@@ -312,7 +268,7 @@ footer {
   padding: 2px 6px;
 }
 
-/* ---------- FILTROS ---------- */
+/* FILTROS */
 .filtros {
   text-align: center;
   margin: 20px;
@@ -329,25 +285,9 @@ footer {
   font-weight: 600;
 }
 
-/* ---------- MENÚ HAMBURGUESA RESPONSIVO ---------- */
+/* MENÚ HAMBURGUESA RESPONSIVO */
 @media (max-width: 768px) {
-  nav ul {
-    display: none;
-    flex-direction: column;
-    background: #fff;
-    position: absolute;
-    top: 60px;
-    right: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    padding: 10px;
-    z-index: 1000;
-  }
-
-  nav ul.active {
-    display: flex;
-  }
-
-  nav .menu-toggle {
+  .menu-toggle {
     display: block;
     background: #b35aa0;
     color: white;
@@ -356,27 +296,58 @@ footer {
     margin: 10px;
     border-radius: 5px;
     font-weight: 600;
+    font-size: 22px;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background-color: #b35aa0;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  nav ul li a {
+    color: white;
+    background-color: transparent;
+    display: block;
+    padding: 10px 15px;
+    border-radius: 6px;
+  }
+
+  nav ul li a:hover {
+    background-color: rgba(255,255,255,0.1);
   }
 }
 
-/* ---------- CONTENEDOR ---------- */
+/* CONTENEDOR GENERAL */
 .contenido {
   max-width: 800px;
   margin: 40px auto;
   background-color: #fff0f6;
   padding: 30px 20px;
   border-radius: 12px;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 12px rgba(0,0,0,0.08);
   text-align: center;
 }
 
-/* --------- CONTACTO --------- */
+/* CONTACTO */
 .contacto-container {
-  max-width: 800px;
+  max-width: 800px;  
   margin: 50px auto;
-  padding: 30px;
+  padding: 30px;  
   background-color: #fff0f6;
-  border-radius: 12px;
+  border-radius: 12px;  
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   text-align: center;
 }
@@ -388,8 +359,8 @@ footer {
 }
 
 .contacto-container p {
-  font-size: 16px;
-  margin: 15px 0;
+  font-size: 16px;  
+  margin: 15px 0;  
   color: #444;
 }
 
@@ -408,11 +379,7 @@ footer {
   margin-right: 6px;
 }
 
-/* --------- CÓMO COMPRAR --------- */
-body {
-  font-family: 'Inter', sans-serif;
-}
-
+/* CÓMO COMPRAR */
 .contenido h1 {
   font-size: 26px;
   color: #b35aa0;
@@ -443,17 +410,17 @@ body {
 
 .nota {
   font-size: 15px;
-  color: #222;
+  color: #222;  
   margin-bottom: 10px;
 }
 
 .etiqueta-stock {
-  color: verde;
+  color: green;
   font-weight: bold;
 }
 
 .etiqueta-espera {
-  color: #b35aa0;
+  color: #b35aa0;  
   font-weight: bold;
 }
 
