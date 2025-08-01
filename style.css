@@ -20,7 +20,7 @@ body {
 
 /* NAV */
 nav {
-  background-color: #b35aa0; /* tono glamoroso */
+  background-color: #b35aa0;
   color: #fff;
   padding: 12px 20px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
@@ -62,19 +62,39 @@ nav ul li a:hover {
   cursor: pointer;
 }
 
+/* Estilos para móviles */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
   }
 
   nav ul {
-    flex-direction: column;
     display: none;
+    flex-direction: column;
+    background-color: #b35aa0;
+    padding: 15px;
+    border-radius: 8px;
     margin-top: 10px;
   }
 
   nav ul.active {
     display: flex;
+  }
+
+  nav ul li a {
+    color: white;
+  }
+}
+
+/* Estilos para escritorio */
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none !important;
+  }
+
+  nav ul {
+    display: flex !important;
+    flex-direction: row;
   }
 }
 
@@ -119,17 +139,15 @@ nav ul li a:hover {
   transform: translateY(-2px);
 }
 
-
 /* FOOTER */
 footer {
-  background-color: #f0d7ea; /* más cálido que #fef2fb */
+  background-color: #f0d7ea;
   text-align: center;
   padding: 20px;
   font-size: 14px;
   color: #555;
   margin-top: auto;
 }
-
 
 /* ---------- PRODUCTOS ---------- */
 .productos {
