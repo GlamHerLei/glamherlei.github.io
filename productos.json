@@ -56,7 +56,7 @@
   {
     "nombre": "Audífonos X15",
     "precio": 50000,
-    "imagen": "img/audifonos_pro60.png",
+    "imagen": "img/audifonos_X15.png",
     "categoria": "tecnologia",
     "stock": 1,
     "colores": ["Negro con luces"],
