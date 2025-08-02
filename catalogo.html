@@ -21,7 +21,7 @@
   </nav>
 
   <div class="filtros">
-    <select onchange="filtrarCategoria(this.value)">
+    <select id="filtro-categoria" onchange="filtrarCategoria(this.value)">
       <option value="todos">Todas las categorías</option>
       <option value="bolsos">Bolsos</option>
       <option value="zapatos">Zapatos</option>
@@ -29,7 +29,8 @@
       <option value="tecnologia">Tecnología</option>
       <option value="hogar">Hogar</option>
     </select>
-    <select onchange="ordenarProductos(this.value)">
+
+    <select id="filtro-orden" onchange="ordenarProductos(this.value)">
       <option value="precio-asc">Precio: menor a mayor</option>
       <option value="precio-desc">Precio: mayor a menor</option>
       <option value="stock">Disponibilidad</option>
@@ -59,6 +60,5 @@
   <footer>
     <p>&copy; 2025 GlamHerLei - Todos los derechos reservados</p>
   </footer>
-
 </body>
 </html>
