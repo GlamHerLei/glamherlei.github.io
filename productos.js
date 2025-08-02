@@ -1,13 +1,48 @@
+// scripts.js (o donde tengas tu JS)
 let productos = [];
+let currentCategory = 'todos';
+let currentSort     = 'precio-asc';
 
 async function cargarProductos() {
   try {
     const res = await fetch('productos.json');
     productos = await res.json();
-    renderizarProductos(productos);
+
+    // setea selects al valor por defecto
+    document.getElementById('filtro-categoria').value = currentCategory;
+    document.getElementById('filtro-orden').value     = currentSort;
+
+    applyFiltersAndSort();
   } catch (error) {
-    document.getElementById('productos').innerHTML = '<p style="text-align:center; color:#666;">Error al cargar los productos.</p>';
+    document.getElementById('productos').innerHTML =
+      '<p style="text-align:center; color:#666;">Error al cargar los productos.</p>';
   }
+}
+
+function applyFiltersAndSort() {
+  // clonamos lista original
+  let lista = productos.slice();
+
+  // 1) filtro de categoría
+  if (currentCategory !== 'todos') {
+    lista = lista.filter(p => p.categoria === currentCategory);
+  }
+
+  // 2) orden seleccionado
+  switch (currentSort) {
+    case 'precio-asc':
+      lista.sort((a, b) => a.precio - b.precio);
+      break;
+    case 'precio-desc':
+      lista.sort((a, b) => b.precio - a.precio);
+      break;
+    case 'stock':
+      // primero los que están en stock
+      lista.sort((a, b) => ((b.stock > 0) ? 0 : 1) - ((a.stock > 0) ? 0 : 1));
+      break;
+  }
+
+  renderizarProductos(lista);
 }
 
 function renderizarProductos(lista) {
@@ -27,7 +62,9 @@ function renderizarProductos(lista) {
 
     let colorSelect = '';
     if (prod.colores && prod.colores.length) {
-      const options = prod.colores.map(c => `<option value="${c}">${c}</option>`).join('');
+      const options = prod.colores
+        .map(c => `<option value="${c}">${c}</option>`)
+        .join('');
       const idColor = `color-${prod.nombre.replace(/\s+/g, '-')}`;
       colorSelect = `
         <label for="${idColor}">Color:</label>
@@ -53,28 +90,13 @@ function renderizarProductos(lista) {
 }
 
 function filtrarCategoria(cat) {
-  if (cat === 'todos') {
-    renderizarProductos(productos);
-  } else {
-    const filtrados = productos.filter(p => p.categoria === cat);
-    renderizarProductos(filtrados);
-  }
+  currentCategory = cat;
+  applyFiltersAndSort();
 }
 
 function ordenarProductos(criterio) {
-  let ordenados = [...productos];
-  switch (criterio) {
-    case 'precio-asc':
-      ordenados.sort((a, b) => a.precio - b.precio);
-      break;
-    case 'precio-desc':
-      ordenados.sort((a, b) => b.precio - a.precio);
-      break;
-    case 'stock':
-      ordenados.sort((a, b) => (b.stock > 0 ? 1 : -1) - (a.stock > 0 ? 1 : -1));
-      break;
-  }
-  renderizarProductos(ordenados);
+  currentSort = criterio;
+  applyFiltersAndSort();
 }
 
 document.addEventListener('DOMContentLoaded', cargarProductos);
