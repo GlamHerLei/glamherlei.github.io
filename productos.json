@@ -23,48 +23,48 @@
   },
   {
     "nombre": "Audífonos M25 Gaming",
-    "precio": 85000,
-    "imagen": "img/audifonos_negros.png",
+    "precio": 50000,
+    "imagen": "img/audifonos_M25.png",
     "categoria": "tecnologia",
-    "stock": 3,
+    "stock": 1,
     "colores": ["Negro"]
   },
   {
     "nombre": "Audífonos TWS",
-    "precio": 95000,
-    "imagen": "img/audifonos_inalambricos.png",
+    "precio": 30000,
+    "imagen": "img/audifonos_TWS.png",
     "categoria": "tecnologia",
-    "stock": 2,
+    "stock": 4,
     "colores": ["Negro", "Blanco", "Rosa", "Azul"]
   },
   {
     "nombre": "Audífonos Pro 60",
-    "precio": 120000,
+    "precio": 60000,
     "imagen": "img/audifonos_pro60.png",
     "categoria": "tecnologia",
-    "stock": 2,
+    "stock": 1,
     "colores": ["Negro con luces"]
   },
   {
     "nombre": "Audífonos AX6S",
-    "precio": 120000,
-    "imagen": "img/audifonos_pro60.png",
+    "precio": 50000,
+    "imagen": "img/audifonos_AX6S.png",
     "categoria": "tecnologia",
     "stock": 1,
     "colores": ["Negro"]
   },
   {
     "nombre": "Audífonos X15",
-    "precio": 120000,
+    "precio": 50000,
     "imagen": "img/audifonos_pro60.png",
     "categoria": "tecnologia",
-    "stock": 0,
+    "stock": 1,
     "colores": ["Negro con luces"],
     "espera": 21
   },
   {
     "nombre": "Reloj inteligente deportivo",
-    "precio": 120000,
+    "precio": 50000,
     "imagen": "img/smartwatch.png",
     "categoria": "tecnologia",
     "stock": 1,
