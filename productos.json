@@ -2,72 +2,79 @@
   {
     "nombre": "Bolso Dorado",
     "precio": 90000,
-    "imagen": "img/bolso_dorado.png",
     "categoria": "bolsos",
-    "stock": 1
+    "variantes": [
+      { "color": "Único", "stock": 1, "imagen": "img/bolso_dorado.png" }
+    ]
   },
   {
     "nombre": "Bolso Beige",
     "precio": 95000,
-    "imagen": "img/bolso_beige.png",
     "categoria": "bolsos",
-    "stock": 0,
+    "variantes": [
+      { "color": "Único", "stock": 0, "imagen": "img/bolso_beige.png" }
+    ],
     "espera": 21
   },
   {
     "nombre": "Bolso Negro",
     "precio": 100000,
-    "imagen": "img/bolso_negro.png",
     "categoria": "bolsos",
-    "stock": 1
+    "variantes": [
+      { "color": "Único", "stock": 1, "imagen": "img/bolso_negro.png" }
+    ]
   },
   {
     "nombre": "Audífonos M25 Gaming",
     "precio": 50000,
-    "imagen": "img/audifonos_M25.png",
     "categoria": "tecnologia",
-    "stock": 1,
-    "colores": ["Negro"]
+    "variantes": [
+      { "color": "Negro", "stock": 1, "imagen": "img/audifonos_M25.png" }
+    ]
   },
   {
     "nombre": "Audífonos TWS",
     "precio": 30000,
-    "imagen": "img/audifonos_TWS.png",
     "categoria": "tecnologia",
-    "stock": 4,
-    "colores": ["Negro", "Blanco", "Rosa", "Azul"]
+    "variantes": [
+      { "color": "Negro", "stock": 2, "imagen": "img/audifonos_TWS_negro.png" },
+      { "color": "Blanco", "stock": 1, "imagen": "img/audifonos_TWS_blanco.png" },
+      { "color": "Rosa", "stock": 0, "imagen": "img/audifonos_TWS_rosa.png" },
+      { "color": "Azul", "stock": 1, "imagen": "img/audifonos_TWS_azul.png" }
+    ]
   },
   {
     "nombre": "Audífonos Pro 60",
     "precio": 60000,
-    "imagen": "img/audifonos_pro60.png",
     "categoria": "tecnologia",
-    "stock": 1,
-    "colores": ["Negro con luces"]
+    "variantes": [
+      { "color": "Negro con luces", "stock": 1, "imagen": "img/audifonos_pro60.png" }
+    ]
   },
   {
     "nombre": "Audífonos AX6S",
     "precio": 50000,
-    "imagen": "img/audifonos_AX6S.png",
     "categoria": "tecnologia",
-    "stock": 1,
-    "colores": ["Negro"]
+    "variantes": [
+      { "color": "Negro", "stock": 1, "imagen": "img/audifonos_AX6S.png" }
+    ]
   },
   {
     "nombre": "Audífonos X15",
     "precio": 50000,
-    "imagen": "img/audifonos_X15.png",
     "categoria": "tecnologia",
-    "stock": 1,
-    "colores": ["Negro con luces"],
+    "variantes": [
+      { "color": "Negro con luces", "stock": 0, "imagen": "img/audifonos_X15.png" }
+    ],
     "espera": 21
   },
   {
     "nombre": "Reloj inteligente deportivo",
     "precio": 50000,
-    "imagen": "img/smartwatch.png",
     "categoria": "tecnologia",
-    "stock": 1,
-    "colores": ["Negro", "Blanco"]
+    "variantes": [
+      { "color": "Negro", "stock": 1, "imagen": "img/smartwatch_negro.png" },
+      { "color": "Blanco", "stock": 1, "imagen": "img/smartwatch_blanco.png" }
+    ]
   }
 ]
