@@ -1,27 +1,27 @@
 [
   {
-    "nombre": "Bolso Dorado",
+    "nombre": "Bolso PyP forma de rosa 1 ",
     "precio": 90000,
     "categoria": "bolsos",
     "variantes": [
-      { "color": "Único", "stock": 1, "imagen": "img/bolso_dorado.png" }
+      { "color": "Dorado", "stock": 1, "imagen": "img/bolso_dorado.png" }
     ]
   },
   {
-    "nombre": "Bolso Beige",
+    "nombre": "Bolso hilo de seda forma de rosa 2",
     "precio": 95000,
     "categoria": "bolsos",
     "variantes": [
-      { "color": "Único", "stock": 0, "espera": 21, "imagen": "img/bolso_beige.png" }
+      { "color": "Beige", "stock": 0, "espera": 21, "imagen": "img/bolso_beige.png" }
     ],
     "espera": 21
   },
   {
-    "nombre": "Bolso Negro",
+    "nombre": "Bolso hilo de seda forma de rosa 1",
     "precio": 100000,
     "categoria": "bolsos",
     "variantes": [
-      { "color": "Único", "stock": 1, "imagen": "img/bolso_negro.png" }
+      { "color": "Negro", "stock": 1, "imagen": "img/bolso_negro.png" }
     ]
   },
   {
@@ -39,7 +39,7 @@
     "variantes": [
       { "color": "Negro", "stock": 2, "imagen": "img/audifonos_TWS_negro.png" },
       { "color": "Blanco", "stock": 1, "imagen": "img/audifonos_TWS_blanco.png" },
-      { "color": "Rosa", "stock": 0, "imagen": "img/audifonos_TWS_rosa.png" },
+      { "color": "Rosa", "stock": 0, "espera": 21, "imagen": "img/audifonos_TWS_rosa.png" },
       { "color": "Azul", "stock": 1, "imagen": "img/audifonos_TWS_azul.png" }
     ]
   },
@@ -64,7 +64,7 @@
     "precio": 50000,
     "categoria": "tecnologia",
     "variantes": [
-      { "color": "Negro con luces", "stock": 0, "imagen": "img/audifonos_X15.png" }
+      { "color": "Negro con luces", "stock": 0, "espera": 21, "imagen": "img/audifonos_X15.png" }
     ],
     "espera": 21
   },
@@ -74,7 +74,7 @@
     "categoria": "tecnologia",
     "variantes": [
       { "color": "Negro", "stock": 1, "imagen": "img/smartwatch_negro.png" },
-      { "color": "Blanco", "stock": 1, "imagen": "img/smartwatch_blanco.png" }
+      { "color": "Blanco", "stock": 0, "espera": 21, "imagen": "img/smartwatch_blanco.png" }
     ]
   }
 ]
