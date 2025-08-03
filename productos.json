@@ -12,7 +12,7 @@
     "precio": 95000,
     "categoria": "bolsos",
     "variantes": [
-      { "color": "Único", "stock espera": Sobrepedido: 21 días, "imagen": "img/bolso_beige.png" }
+      { "color": "Único", "stock espera": Sobrepedido 21 días, "imagen": "img/bolso_beige.png" }
     ],
     "espera": 21
   },
