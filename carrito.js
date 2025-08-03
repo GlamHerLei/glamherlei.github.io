@@ -13,7 +13,7 @@ function agregarAlCarrito(nombre, precio) {
 
   let stock = producto.stock;
 
-  // Si tiene color, ajustamos el nombre base y stock
+  // Si tiene color, ajustamos stock según variante
   const varianteColorMatch = producto.variantes?.find(v =>
     nombre.includes(`(${v.color})`)
   );
@@ -22,7 +22,11 @@ function agregarAlCarrito(nombre, precio) {
   }
 
   const enStock = carrito.find(p => p.nombre === nombre);
-  const sobrepedidoNombre = `${nombre}-sobrepedido`;
+
+  // Evita repetir sufijo "-sobrepedido"
+  const sobrepedidoNombre = nombre.includes('-sobrepedido')
+    ? nombre
+    : `${nombre}-sobrepedido`;
   const sobrepedido = carrito.find(p => p.nombre === sobrepedidoNombre);
 
   if (enStock) {
@@ -43,7 +47,11 @@ function agregarAlCarrito(nombre, precio) {
     if (stock > 0) {
       carrito.push({ nombre, precio, cantidad: 1 });
     } else {
-      carrito.push({ nombre: sobrepedidoNombre, precio, cantidad: 1 });
+      if (sobrepedido) {
+        sobrepedido.cantidad++;
+      } else {
+        carrito.push({ nombre: sobrepedidoNombre, precio, cantidad: 1 });
+      }
     }
   }
 
