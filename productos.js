@@ -43,15 +43,24 @@ function renderizarProductos(lista) {
     const div = document.createElement('div');
     div.className = `producto ${prod.categoria}`;
 
+    // Etiqueta de stock / sobre pedido
     let stockLabel = '';
-    if (prod.variantes) {
-      stockLabel = `<span id="stock-${prod.nombre}" class="etiqueta-stock disponible">En stock x${prod.variantes[0].stock}</span>`;
+    if (prod.variantes && prod.variantes.length) {
+      const primeraVariante = prod.variantes[0];
+      if (primeraVariante.stock > 0) {
+        stockLabel = `<span id="stock-${prod.nombre}" class="etiqueta-stock">En stock x${primeraVariante.stock}</span>`;
+      } else if (primeraVariante.espera) {
+        stockLabel = `<span id="stock-${prod.nombre}" class="etiqueta-stock espera">Sobre pedido: ${primeraVariante.espera} días</span>`;
+      }
     } else {
-      stockLabel = prod.stock > 0
-        ? `<span class="etiqueta-stock disponible">En stock x${prod.stock}</span>`
-        : `<span class="etiqueta-stock espera">Sobre pedido</span>`;
+      if (prod.stock > 0) {
+        stockLabel = `<span class="etiqueta-stock">En stock x${prod.stock}</span>`;
+      } else if (prod.espera) {
+        stockLabel = `<span class="etiqueta-stock espera">Sobre pedido: ${prod.espera} días</span>`;
+      }
     }
 
+    // Selector de color si aplica
     let colorSelect = '';
     if (prod.variantes && prod.variantes.length) {
       const options = prod.variantes.map(v => `<option value="${v.color}">${v.color}</option>`).join('');
@@ -90,7 +99,10 @@ function actualizarVista(nombre, colorSelectId, imagenId, stockId) {
     document.getElementById(imagenId).src = variante.imagen;
     document.getElementById(stockId).textContent = variante.stock > 0
       ? `En stock x${variante.stock}`
-      : "Sobre pedido";
+      : `Sobre pedido: ${variante.espera || ''} días`;
+    document.getElementById(stockId).className = variante.stock > 0
+      ? 'etiqueta-stock'
+      : 'etiqueta-stock espera';
   }
 }
 
