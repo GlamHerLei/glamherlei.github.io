@@ -15,6 +15,32 @@ function agregarAlCarrito(nombre, precio) {
   guardarCarrito();
 }
 
+function agregarAlCarritoConColor(nombre, colorSelectId) {
+  const producto = productos.find(p => p.nombre === nombre);
+  const color = document.getElementById(colorSelectId).value;
+  const variante = producto.variantes.find(v => v.color === color);
+  const nombreConColor = `${nombre} (${color})`;
+
+  if (!variante) return;
+
+  const existente = carrito.find(p => p.nombre === nombreConColor);
+
+  if (variante.stock === 0) {
+    alert(`"${nombreConColor}" está sobre pedido.`);
+    carrito.push({ nombre: nombreConColor, precio: producto.precio, cantidad: 1 });
+  } else if (existente) {
+    if (existente.cantidad < variante.stock) {
+      existente.cantidad++;
+    } else {
+      alert(`Solo hay ${variante.stock} unidades disponibles de "${nombreConColor}".`);
+    }
+  } else {
+    carrito.push({ nombre: nombreConColor, precio: producto.precio, cantidad: 1 });
+  }
+
+  guardarCarrito();
+}
+
 function quitarDelCarrito(nombre) {
   const producto = carrito.find(p => p.nombre === nombre);
   if (producto) {
@@ -41,12 +67,6 @@ function enviarPedido() {
   ).join('%0A');
   const url = `https://wa.me/573186611074?text=Hola,+quiero+hacer+un+pedido:%0A${mensaje}`;
   window.open(url, '_blank');
-}
-
-function agregarAlCarritoConColor(nombre, precio, colorSelectId) {
-  const color = document.getElementById(colorSelectId)?.value || '';
-  const nombreConColor = `${nombre} (${color})`;
-  agregarAlCarrito(nombreConColor, precio);
 }
 
 function actualizarCarrito() {
@@ -111,7 +131,6 @@ document.addEventListener('DOMContentLoaded', () => {
   actualizarCarrito();
 });
 
-// Cierra el carrito solo si se hace clic FUERA de él y del botón
 window.addEventListener('click', function (e) {
   const carritoEl = document.getElementById('carrito');
   const toggleBtn = document.getElementById('toggle-carrito');
