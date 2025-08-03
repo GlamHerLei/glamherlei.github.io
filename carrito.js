@@ -5,16 +5,52 @@ function guardarCarrito() {
   actualizarCarrito();
 }
 
+// Agregar productos sin color
 function agregarAlCarrito(nombre, precio) {
-  const existente = carrito.find(p => p.nombre === nombre);
-  if (existente) {
-    existente.cantidad++;
-  } else {
-    carrito.push({ nombre, precio, cantidad: 1 });
+  const baseNombre = nombre.replace('-sobrepedido', '').trim();
+  const producto = productos.find(p => baseNombre.startsWith(p.nombre));
+  if (!producto) return;
+
+  let stock = producto.stock;
+
+  // Si tiene color, ajustamos el nombre base y stock
+  const varianteColorMatch = producto.variantes?.find(v =>
+    nombre.includes(`(${v.color})`)
+  );
+  if (varianteColorMatch) {
+    stock = varianteColorMatch.stock;
   }
+
+  const enStock = carrito.find(p => p.nombre === nombre);
+  const sobrepedidoNombre = `${nombre}-sobrepedido`;
+  const sobrepedido = carrito.find(p => p.nombre === sobrepedidoNombre);
+
+  if (enStock) {
+    if (enStock.cantidad < stock) {
+      enStock.cantidad++;
+    } else {
+      if (sobrepedido) {
+        sobrepedido.cantidad++;
+      } else {
+        carrito.push({
+          nombre: sobrepedidoNombre,
+          precio,
+          cantidad: 1
+        });
+      }
+    }
+  } else {
+    if (stock > 0) {
+      carrito.push({ nombre, precio, cantidad: 1 });
+    } else {
+      carrito.push({ nombre: sobrepedidoNombre, precio, cantidad: 1 });
+    }
+  }
+
   guardarCarrito();
 }
 
+// Agregar productos con color
 function agregarAlCarritoConColor(nombre, colorSelectId) {
   const producto = productos.find(p => p.nombre === nombre);
   const color = document.getElementById(colorSelectId).value;
@@ -23,22 +59,7 @@ function agregarAlCarritoConColor(nombre, colorSelectId) {
 
   if (!variante) return;
 
-  const existente = carrito.find(p => p.nombre === nombreConColor);
-
-  if (variante.stock === 0) {
-    alert(`"${nombreConColor}" está sobre pedido.`);
-    carrito.push({ nombre: nombreConColor, precio: producto.precio, cantidad: 1 });
-  } else if (existente) {
-    if (existente.cantidad < variante.stock) {
-      existente.cantidad++;
-    } else {
-      alert(`Solo hay ${variante.stock} unidades disponibles de "${nombreConColor}".`);
-    }
-  } else {
-    carrito.push({ nombre: nombreConColor, precio: producto.precio, cantidad: 1 });
-  }
-
-  guardarCarrito();
+  agregarAlCarrito(nombreConColor, producto.precio);
 }
 
 function quitarDelCarrito(nombre) {
@@ -94,7 +115,7 @@ function actualizarCarrito() {
     btnMenos.className = 'btn-cantidad';
     btnMenos.textContent = '–';
     btnMenos.addEventListener('click', (e) => {
-      e.stopPropagation();
+      e.stopPropagation(); // Evita cierre del carrito
       quitarDelCarrito(item.nombre);
     });
 
@@ -102,7 +123,7 @@ function actualizarCarrito() {
     btnMas.className = 'btn-cantidad';
     btnMas.textContent = '+';
     btnMas.addEventListener('click', (e) => {
-      e.stopPropagation();
+      e.stopPropagation(); // Evita cierre del carrito
       agregarAlCarrito(item.nombre, item.precio);
     });
 
@@ -131,12 +152,12 @@ document.addEventListener('DOMContentLoaded', () => {
   actualizarCarrito();
 });
 
+// Cierra el carrito solo si se hace clic fuera
 window.addEventListener('click', function (e) {
   const carritoEl = document.getElementById('carrito');
   const toggleBtn = document.getElementById('toggle-carrito');
 
   if (!carritoEl || !toggleBtn) return;
-
   if (toggleBtn.contains(e.target)) return;
   if (carritoEl.contains(e.target)) return;
 
