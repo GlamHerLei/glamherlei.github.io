@@ -17,6 +17,22 @@
     "espera": 21
   },
   {
+    "nombre": "Bolso trapillo rectangular 1",
+    "precio": 60000,
+    "categoria": "bolsos",
+    "variantes": [
+      { "color": "azul", "stock": 1, "imagen": "img/bolso_tr_azul.png" }
+    ]
+  },
+  {
+    "nombre": "Bolso trapillo circular 1",
+    "precio": 60000,
+    "categoria": "bolsos",
+    "variantes": [
+      { "color": "azul", "stock": 1, "imagen": "img/bolso_tc_azul.png" }
+    ]
+  },
+  {
     "nombre": "Bolso hilo de seda forma de rosa 1",
     "precio": 100000,
     "categoria": "bolsos",
