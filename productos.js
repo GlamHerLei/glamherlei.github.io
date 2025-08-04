@@ -84,6 +84,7 @@ function renderizarProductos(lista) {
       <p>$${prod.precio.toLocaleString('es-CO')}</p>
       ${colorSelect}
       <button onclick="${agregarFn}">Agregar</button>
+      <button onclick="mostrarDetalles('${prod.nombre}')">Ver detalles</button>
     `;
 
     contenedor.appendChild(div);
@@ -104,6 +105,38 @@ function actualizarVista(nombre, colorSelectId, imagenId, stockId) {
       ? 'etiqueta-stock'
       : 'etiqueta-stock espera';
   }
+}
+
+// Función para mostrar el modal con imágenes y detalles
+function mostrarDetalles(nombre) {
+  const producto = productos.find(p => p.nombre === nombre);
+  if (!producto) return;
+
+  let imagenesHTML = '';
+  if (producto.imagenes && producto.imagenes.length) {
+    imagenesHTML = producto.imagenes.map(src => `<img src="${src}" class="detalle-img">`).join('');
+  } else {
+    imagenesHTML = `<img src="${producto.variantes ? producto.variantes[0].imagen : producto.imagen}" class="detalle-img">`;
+  }
+
+  const detallesHTML = `
+    <h2>${producto.nombre}</h2>
+    <p><strong>Precio:</strong> $${producto.precio.toLocaleString()}</p>
+    ${producto.detalles ? `
+      <p><strong>Medidas:</strong> ${producto.detalles.medidas}</p>
+      <p><strong>Material:</strong> ${producto.detalles.material}</p>
+      <p><strong>Peso:</strong> ${producto.detalles.peso}</p>
+      <p>${producto.detalles.descripcion}</p>
+    ` : ''}
+    <div class="detalle-imagenes">${imagenesHTML}</div>
+  `;
+
+  document.getElementById('detalles-contenido').innerHTML = detallesHTML;
+  document.getElementById('modal-detalles').style.display = 'block';
+}
+
+function cerrarModal() {
+  document.getElementById('modal-detalles').style.display = 'none';
 }
 
 function filtrarCategoria(cat) {
