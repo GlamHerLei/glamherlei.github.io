@@ -14,7 +14,7 @@
     <button class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">☰ Menú</button>
     <ul>
       <li><a href="index.html">Inicio</a></li>
-      <li><a href="catalogo.html">Catálogo</a></li>
+      <li><a href="catalogo.html" class="active">Catálogo</a></li>
       <li><a href="como-comprar.html">Cómo comprar</a></li>
       <li><a href="contacto.html">Contacto</a></li>
     </ul>
@@ -38,6 +38,14 @@
   </div>
 
   <div class="productos" id="productos"></div>
+
+  <!-- Modal para ver detalles del producto -->
+  <div id="modal-detalles" class="modal" style="display:none;">
+    <div class="modal-contenido">
+      <span class="cerrar" onclick="cerrarModal()">&times;</span>
+      <div id="detalles-contenido"></div>
+    </div>
+  </div>
 
   <button id="toggle-carrito" onclick="toggleCarrito()">👜 <span id="contador-carrito">0</span></button>
   <div id="carrito">
