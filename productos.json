@@ -21,7 +21,7 @@
     "precio": 60000,
     "categoria": "bolsos",
     "variantes": [
-      { "color": "azul", "stock": 1, "imagen": "img/bolso_tr_azul.png" }
+      { "color": "azul", "stock": 0, "espera": 21, "imagen": "img/bolso_tr_azul.jpeg" }
     ]
   },
   {
@@ -29,7 +29,7 @@
     "precio": 60000,
     "categoria": "bolsos",
     "variantes": [
-      { "color": "azul", "stock": 1, "imagen": "img/bolso_tc_azul.png" }
+      { "color": "azul", "stock": 0, "espera": 21, "imagen": "img/bolso_tc_azul.jpeg" }
     ]
   },
   {
