@@ -1,11 +1,22 @@
 [
   {
-    "nombre": "Bolso PyP forma de rosa 1 ",
+    "nombre": "Bolso PyP forma de rosa 1",
     "precio": 90000,
     "categoria": "bolsos",
     "variantes": [
       { "color": "Dorado", "stock": 1, "imagen": "img/bolso_dorado.png" }
-    ]
+    ],
+    "imagenes": [
+      "img/bolso_dorado.png",
+      "img/bolso_dorado_2.png",
+      "img/bolso_dorado_3.png"
+    ],
+    "detalles": {
+      "medidas": "30x25x12 cm",
+      "material": "Hilo P&P",
+      "peso": "0.5 kg",
+      "descripcion": "Bolso artesanal en forma de rosa con acabado fino y resistente."
+    }
   },
   {
     "nombre": "Bolso hilo de seda forma de rosa 2",
@@ -14,23 +25,50 @@
     "variantes": [
       { "color": "Beige", "stock": 0, "espera": 21, "imagen": "img/bolso_beige.png" }
     ],
-    "espera": 21
+    "imagenes": [
+      "img/bolso_beige.png",
+      "img/bolso_beige_2.png"
+    ],
+    "detalles": {
+      "medidas": "28x23x10 cm",
+      "material": "Hilo de seda",
+      "peso": "0.45 kg",
+      "descripcion": "Bolso hecho a mano con hilo de seda, textura suave y elegante."
+    }
   },
   {
     "nombre": "Bolso trapillo rectangular 1",
     "precio": 60000,
     "categoria": "bolsos",
     "variantes": [
-      { "color": "azul", "stock": 0, "espera": 21, "imagen": "img/bolso_tr_azul.jpeg" }
-    ]
+      { "color": "Azul", "stock": 0, "espera": 21, "imagen": "img/bolso_tr_azul.jpeg" }
+    ],
+    "imagenes": [
+      "img/bolso_tr_azul.jpeg"
+    ],
+    "detalles": {
+      "medidas": "32x20x12 cm",
+      "material": "Trapillo reciclado",
+      "peso": "0.6 kg",
+      "descripcion": "Bolso rectangular tejido con trapillo, ideal para uso casual."
+    }
   },
   {
     "nombre": "Bolso trapillo circular 1",
     "precio": 60000,
     "categoria": "bolsos",
     "variantes": [
-      { "color": "azul", "stock": 0, "espera": 21, "imagen": "img/bolso_tc_azul.jpeg" }
-    ]
+      { "color": "Azul", "stock": 0, "espera": 21, "imagen": "img/bolso_tc_azul.jpeg" }
+    ],
+    "imagenes": [
+      "img/bolso_tc_azul.jpeg"
+    ],
+    "detalles": {
+      "medidas": "28x28x10 cm",
+      "material": "Trapillo reciclado",
+      "peso": "0.55 kg",
+      "descripcion": "Bolso circular hecho con trapillo, resistente y moderno."
+    }
   },
   {
     "nombre": "Bolso hilo de seda forma de rosa 1",
@@ -38,7 +76,16 @@
     "categoria": "bolsos",
     "variantes": [
       { "color": "Negro", "stock": 1, "imagen": "img/bolso_negro.png" }
-    ]
+    ],
+    "imagenes": [
+      "img/bolso_negro.png"
+    ],
+    "detalles": {
+      "medidas": "30x25x12 cm",
+      "material": "Hilo de seda",
+      "peso": "0.5 kg",
+      "descripcion": "Diseño exclusivo en hilo de seda negro, resistente y elegante."
+    }
   },
   {
     "nombre": "Audífonos M25 Gaming",
@@ -46,7 +93,17 @@
     "categoria": "tecnologia",
     "variantes": [
       { "color": "Negro", "stock": 1, "imagen": "img/audifonos_M25.png" }
-    ]
+    ],
+    "imagenes": [
+      "img/audifonos_M25.png",
+      "img/audifonos_M25_2.png"
+    ],
+    "detalles": {
+      "medidas": "Ajustable",
+      "material": "Plástico y metal",
+      "peso": "0.2 kg",
+      "descripcion": "Audífonos gaming con micrófono integrado y sonido envolvente."
+    }
   },
   {
     "nombre": "Audífonos TWS",
@@ -57,7 +114,19 @@
       { "color": "Blanco", "stock": 1, "imagen": "img/audifonos_TWS_blanco.png" },
       { "color": "Rosa", "stock": 0, "espera": 21, "imagen": "img/audifonos_TWS_rosa.png" },
       { "color": "Azul", "stock": 1, "imagen": "img/audifonos_TWS_azul.png" }
-    ]
+    ],
+    "imagenes": [
+      "img/audifonos_TWS_negro.png",
+      "img/audifonos_TWS_blanco.png",
+      "img/audifonos_TWS_rosa.png",
+      "img/audifonos_TWS_azul.png"
+    ],
+    "detalles": {
+      "medidas": "Compacto",
+      "material": "Plástico ABS",
+      "peso": "0.05 kg",
+      "descripcion": "Auriculares inalámbricos con Bluetooth y micrófono integrado."
+    }
   },
   {
     "nombre": "Audífonos Pro 60",
@@ -65,7 +134,16 @@
     "categoria": "tecnologia",
     "variantes": [
       { "color": "Negro con luces", "stock": 1, "imagen": "img/audifonos_pro60.png" }
-    ]
+    ],
+    "imagenes": [
+      "img/audifonos_pro60.png"
+    ],
+    "detalles": {
+      "medidas": "Ajustable",
+      "material": "Plástico y metal",
+      "peso": "0.25 kg",
+      "descripcion": "Audífonos con luces LED y sonido de alta fidelidad."
+    }
   },
   {
     "nombre": "Audífonos AX6S",
@@ -73,7 +151,16 @@
     "categoria": "tecnologia",
     "variantes": [
       { "color": "Negro", "stock": 1, "imagen": "img/audifonos_AX6S.png" }
-    ]
+    ],
+    "imagenes": [
+      "img/audifonos_AX6S.png"
+    ],
+    "detalles": {
+      "medidas": "Ajustable",
+      "material": "Plástico y metal",
+      "peso": "0.22 kg",
+      "descripcion": "Audífonos con graves potentes y diseño ergonómico."
+    }
   },
   {
     "nombre": "Audífonos X15",
@@ -82,7 +169,16 @@
     "variantes": [
       { "color": "Negro con luces", "stock": 0, "espera": 21, "imagen": "img/audifonos_X15.png" }
     ],
-    "espera": 21
+    "espera": 21,
+    "imagenes": [
+      "img/audifonos_X15.png"
+    ],
+    "detalles": {
+      "medidas": "Ajustable",
+      "material": "Plástico y metal",
+      "peso": "0.23 kg",
+      "descripcion": "Audífonos con luces LED RGB y micrófono desmontable."
+    }
   },
   {
     "nombre": "Reloj inteligente deportivo",
@@ -91,6 +187,16 @@
     "variantes": [
       { "color": "Negro", "stock": 1, "imagen": "img/smartwatch_negro.png" },
       { "color": "Blanco", "stock": 0, "espera": 21, "imagen": "img/smartwatch_blanco.png" }
-    ]
+    ],
+    "imagenes": [
+      "img/smartwatch_negro.png",
+      "img/smartwatch_blanco.png"
+    ],
+    "detalles": {
+      "medidas": "Correa ajustable",
+      "material": "Silicona y metal",
+      "peso": "0.1 kg",
+      "descripcion": "Smartwatch con monitoreo de ritmo cardíaco y notificaciones."
+    }
   }
 ]
