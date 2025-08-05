@@ -797,8 +797,98 @@ nav ul li a:hover {
     color: white;
     border: none;
     padding: 10px;
-    border-radius: 50%;
+    border-radius: 10%;
     font-size: 20px;
     cursor: pointer;
   }
+}
+
+/* ========================= */
+/* PREMIUM FINAL GLAMHERLEI */
+/* ========================= */
+
+/* BOTONES GENERALES */
+button, .boton, .producto button, .producto .btn-detalles {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover, .boton:hover, .producto button:hover, .producto .btn-detalles:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* BOTÓN PRINCIPAL */
+.producto button {
+  background-color: #b35aa0;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 30px;
+}
+
+/* BOTÓN SECUNDARIO */
+.producto .btn-detalles {
+  background-color: #f0d7ea;
+  color: #b35aa0;
+  padding: 8px 18px;
+  border-radius: 25px;
+  margin-top: 8px;
+}
+
+/* BOTÓN FLOTANTE CARRITO */
+#toggle-carrito {
+  background-color: #b35aa0;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  font-size: 24px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+#toggle-carrito:hover {
+  background-color: #9d4691;
+}
+
+/* ETIQUETAS DE STOCK */
+.etiqueta-stock {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  background-color: #6ac96a;
+  color: white;
+}
+
+.etiqueta-stock.espera {
+  background-color: #ff6b6b;
+}
+
+/* MODAL */
+.modal-contenido {
+  border-radius: 18px;
+  padding: 30px 25px;
+  max-width: 650px;
+  animation: fadeInModal 0.4s ease-in-out;
+}
+
+.detalle-imagenes img {
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* FILTROS */
+.filtros select {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
