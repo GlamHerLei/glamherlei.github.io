@@ -1,7 +1,7 @@
 [
   {
     "nombre": "Bolso PyP forma de rosa 1",
-    "precio": 90000,
+    "precio": 75000,
     "categoria": "bolsos",
     "variantes": [
       { "color": "Dorado", "stock": 1, "imagen": "img/bolso_dorado.png" }
@@ -20,7 +20,7 @@
   },
   {
     "nombre": "Bolso hilo de seda forma de rosa 2",
-    "precio": 95000,
+    "precio": 75000,
     "categoria": "bolsos",
     "variantes": [
       { "color": "Beige", "stock": 0, "espera": 21, "imagen": "img/bolso_beige.png" }
@@ -72,7 +72,7 @@
   },
   {
     "nombre": "Bolso hilo de seda forma de rosa 1",
-    "precio": 100000,
+    "precio": 80000,
     "categoria": "bolsos",
     "variantes": [
       { "color": "Negro", "stock": 1, "imagen": "img/bolso_negro.png" }
@@ -89,7 +89,7 @@
   },
   {
     "nombre": "Audífonos M25 Gaming",
-    "precio": 50000,
+    "precio": 45000,
     "categoria": "tecnologia",
     "variantes": [
       { "color": "Negro", "stock": 1, "imagen": "img/audifonos_M25.png" }
@@ -130,7 +130,7 @@
   },
   {
     "nombre": "Audífonos Pro 60",
-    "precio": 60000,
+    "precio": 55000,
     "categoria": "tecnologia",
     "variantes": [
       { "color": "Negro con luces", "stock": 1, "imagen": "img/audifonos_pro60.png" }
@@ -147,7 +147,7 @@
   },
   {
     "nombre": "Audífonos AX6S",
-    "precio": 50000,
+    "precio": 40000,
     "categoria": "tecnologia",
     "variantes": [
       { "color": "Negro", "stock": 1, "imagen": "img/audifonos_AX6S.png" }
