@@ -147,7 +147,7 @@
   },
   {
     "nombre": "Audífonos AX6S",
-    "precio": 40000,
+    "precio": 25000,
     "categoria": "tecnologia",
     "variantes": [
       { "color": "Negro", "stock": 1, "imagen": "img/audifonos_AX6S.png" }
